@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
-<body>
+<body class="dark-theme">
 
 <nav>
   <div class="nav-row">
@@ -41,28 +41,35 @@
   </div>
 </nav>
 <header class="band" style="padding-bottom:0;">
-  <div class="wrap fade-up" style="max-width:740px;">
+  <div class="wrap fade-up container-narrow">
+    <span class="badge-pill"><span class="dot"></span>Em breve · R$49/mês</span>
     <p class="eyebrow"><a href="/hub/" style="color:var(--amber);">Zatti Hub</a> · Em breve</p>
-    <h1 style="font-size:clamp(30px,4.2vw,46px);line-height:1.16;">Controle Financeiro para restaurante, sem depender de planilha.</h1>
-    <p class="lede" style="margin-top:18px;">DRE gerencial, fluxo de caixa e plano de contas configurados pro seu negócio, saindo da planilha isolada e entrando no mesmo sistema onde já está seu estoque.</p>
+    <h1 class="h1-page">Controle Financeiro para restaurante, sem depender de planilha.</h1>
+    <p class="lede mt-md">DRE gerencial, fluxo de caixa e plano de contas configurados pro seu negócio, saindo da planilha isolada e entrando no mesmo sistema onde já está seu estoque.</p>
     <div class="hero-actions"><a class="btn" href="#qualify">Quero ser avisado no lançamento</a></div>
   </div>
 </header>
 
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> · <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> ·
+  </div>
+</div>
+
 <section class="band">
   <div class="wrap">
     <p class="eyebrow">O problema que resolve</p>
-    <h2 style="max-width:26ch;font-size:clamp(24px,3.2vw,30px);">Quem não tem DRE hoje não vai ter no fim do ano.</h2>
-    <p style="margin-top:20px;max-width:66ch;">A maioria dos donos de restaurante sabe se o caixa está cheio ou vazio, mas não sabe se o mês deu lucro. Sem DRE gerencial e sem fluxo de caixa organizado, a gestão financeira acontece no susto: o dinheiro só falta na hora de pagar fornecedor, e ninguém descobre o motivo a tempo de corrigir.</p>
-    <p style="max-width:66ch;">A planilha financeira que a Zatti já usa em consultoria, com DRE gerencial, fluxo de caixa e plano de contas, é a base do módulo de Controle Financeiro do Zatti Hub. A diferença é sair da planilha isolada e entrar no mesmo sistema onde já está o estoque e a compra do restaurante.</p>
+    <h2 class="h2-section measure-loose reveal">Quem não tem DRE hoje não vai ter no fim do ano.</h2>
+    <p class="mt-md">A maioria dos donos de restaurante sabe se o caixa está cheio ou vazio, mas não sabe se o mês deu lucro. Sem DRE gerencial e sem fluxo de caixa organizado, a gestão financeira acontece no susto: o dinheiro só falta na hora de pagar fornecedor, e ninguém descobre o motivo a tempo de corrigir.</p>
+    <p>A planilha financeira que a Zatti já usa em consultoria, com DRE gerencial, fluxo de caixa e plano de contas, é a base do módulo de Controle Financeiro do Zatti Hub. A diferença é sair da planilha isolada e entrar no mesmo sistema onde já está o estoque e a compra do restaurante.</p>
   </div>
 </section>
 
 <section class="band band-dark">
   <div class="wrap">
     <p class="eyebrow">O que o módulo vai entregar</p>
-    <h2 style="max-width:24ch;font-size:clamp(24px,3.2vw,30px);">Em construção. Isso é o que está no escopo.</h2>
-    <div class="pain-list">
+    <h2 class="h2-section measure-tight reveal">Em construção. Isso é o que está no escopo.</h2>
+    <div class="pain-list reveal-stagger">
       <div class="pain-row">
         <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
         <p><strong>DRE gerencial automática.</strong> Demonstrativo de resultado mensal, sem precisar montar fórmula em planilha todo mês.</p>
@@ -82,7 +89,7 @@
 <section class="band">
   <div class="wrap">
     <p class="eyebrow">Perguntas frequentes</p>
-    <h2 style="font-size:clamp(24px,3vw,30px);">Antes de decidir</h2>
+    <h2 class="h2-section reveal">Antes de decidir</h2>
     <div class="faq">
       <details>
         <summary>Esse módulo já existe?</summary>
@@ -101,9 +108,9 @@
 </section>
 
 <section class="band band-dark" id="qualify">
-  <div class="wrap" style="max-width:640px;">
+  <div class="wrap container-narrow">
     <p class="eyebrow">Fale com um especialista</p>
-    <div class="qualify" data-product="Controle Financeiro" style="background:var(--cream);">
+    <div class="qualify reveal" data-product="Controle Financeiro">
       <p class="qualify-q">Quem não tem DRE hoje não vai ter no fim do ano. Você tem a sua?</p>
       <div class="qualify-btns">
         <button type="button" class="btn btn-outline" data-answer="nao">Não</button>
@@ -134,7 +141,7 @@
         </form>
       </div>
     </div>
-    <p class="microcopy" style="text-align:center;margin-top:20px;"><a href="/hub/" style="color:var(--cream);">← Ver os outros módulos do Zatti Hub</a></p>
+    <p class="microcopy mt-md" style="text-align:center;"><a href="/hub/" style="color:var(--cream);">← Ver os outros módulos do Zatti Hub</a></p>
   </div>
 </section>
 

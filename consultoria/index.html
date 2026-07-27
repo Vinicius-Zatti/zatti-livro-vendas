@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
-<body>
+<body class="dark-theme">
 
 <nav>
   <div class="nav-row">
@@ -41,17 +41,18 @@
   </div>
 </nav>
 <header class="band" style="padding-bottom:0;">
-  <div class="wrap fade-up" style="max-width:740px;">
+  <div class="wrap fade-up container-narrow">
+    <span class="badge-pill"><span class="dot"></span>Programa de 9 a 12 meses</span>
     <p class="eyebrow">Consultoria Zatti</p>
-    <h1 style="font-size:clamp(30px,4.2vw,46px);line-height:1.16;">Acompanhamento completo, do diagnóstico à rotina implementada.</h1>
-    <p class="lede" style="margin-top:18px;">Programa de 9 a 12 meses baseado no Método M.E.G.A. Uma reunião semanal, grupo de WhatsApp ativo, e a Zatti presente até o negócio estar de fato organizado. Sem sair antes do resultado aparecer.</p>
+    <h1 class="h1-page">Acompanhamento completo, do diagnóstico à rotina implementada.</h1>
+    <p class="lede mt-md">Programa de 9 a 12 meses baseado no Método M.E.G.A. Uma reunião semanal, grupo de WhatsApp ativo, e a Zatti presente até o negócio estar de fato organizado. Sem sair antes do resultado aparecer.</p>
     <div class="hero-actions">
       <a class="btn" href="#pesquisa">Responder e falar com um especialista</a>
       <p class="microcopy">5 perguntas rápidas. Sem valor fixo publicado, o programa é desenhado pro seu momento.</p>
     </div>
   </div>
   <div class="wrap">
-    <div class="facts">
+    <div class="facts reveal-stagger">
       <div class="fact"><span class="num">9 a 12</span><span class="lbl">Meses de programa completo</span></div>
       <div class="fact"><span class="num">5</span><span class="lbl">Fases: Onboarding, Mapeia, Estrutura, Garante, Acompanha</span></div>
       <div class="fact"><span class="num">1x</span><span class="lbl">Reunião semanal, mais grupo de WhatsApp ativo</span></div>
@@ -59,19 +60,25 @@
   </div>
 </header>
 
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> · <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> ·
+  </div>
+</div>
+
 <section class="band">
   <div class="wrap">
     <p class="eyebrow">Por que não tem preço aqui</p>
-    <h2 style="max-width:28ch;font-size:clamp(24px,3.2vw,30px);">Cada programa é desenhado pro nível real do seu negócio.</h2>
-    <p style="margin-top:20px;max-width:66ch;">O investimento muda conforme o ponto de partida: um negócio que já tem alguma base de gestão avança mais rápido pela fase de diagnóstico, um negócio começando do zero precisa de mais estrutura logo no início. Por isso a Zatti não publica um valor fixo aqui. As 5 perguntas abaixo servem exatamente pra isso: entender seu momento antes da conversa, pra chegar com uma proposta que faz sentido pro seu negócio, não um preço de tabela.</p>
+    <h2 class="h2-section measure-loose reveal">Cada programa é desenhado pro nível real do seu negócio.</h2>
+    <p class="mt-md">O investimento muda conforme o ponto de partida: um negócio que já tem alguma base de gestão avança mais rápido pela fase de diagnóstico, um negócio começando do zero precisa de mais estrutura logo no início. Por isso a Zatti não publica um valor fixo aqui. As 5 perguntas abaixo servem exatamente pra isso: entender seu momento antes da conversa, pra chegar com uma proposta que faz sentido pro seu negócio, não um preço de tabela.</p>
   </div>
 </section>
 
 <section class="band band-dark">
   <div class="wrap">
     <p class="eyebrow">Como funciona o programa</p>
-    <h2 style="max-width:22ch;font-size:clamp(24px,3.2vw,30px);">Cinco fases, cada uma com entrega concreta.</h2>
-    <div class="ledger" style="border-top-color:var(--hairline-dark);">
+    <h2 class="h2-section measure-tight reveal">Cinco fases, cada uma com entrega concreta.</h2>
+    <div class="ledger reveal-stagger">
       <div class="ledger-row">
         <div class="idx">00</div>
         <div><h3>Onboarding</h3><p>2 semanas. Diagnóstico inicial e definição do seu perfil de entrada.</p></div>
@@ -97,10 +104,10 @@
 </section>
 
 <section class="band" id="pesquisa">
-  <div class="wrap" style="max-width:640px;">
+  <div class="wrap container-narrow">
     <p class="eyebrow">Antes de falar com um especialista</p>
-    <h2 style="font-size:clamp(24px,3.2vw,30px);">5 perguntas rápidas sobre o seu negócio hoje.</h2>
-    <p class="lede" style="margin-top:12px;">Sem enrolação. As respostas ficam só entre você e a Zatti, servem pra eu entender seu momento antes da conversa.</p>
+    <h2 class="h2-section reveal">5 perguntas rápidas sobre o seu negócio hoje.</h2>
+    <p class="lede mt-sm">Sem enrolação. As respostas ficam só entre você e a Zatti, servem pra eu entender seu momento antes da conversa.</p>
 
     <form class="survey survey-form" action="https://formspree.io/f/mzdnkdbv" method="POST">
       <input type="hidden" name="origem" value="pesquisa /consultoria/">
@@ -152,9 +159,9 @@
       <div class="field">
         <label>Seus dados de contato</label>
         <div class="options" style="grid-template-columns:1fr;">
-          <input type="text" name="nome" placeholder="Nome" required style="border:1px solid var(--hairline);border-radius:3px;padding:12px 14px;">
-          <input type="text" name="negocio" placeholder="Nome do restaurante" required style="border:1px solid var(--hairline);border-radius:3px;padding:12px 14px;margin-top:8px;">
-          <input type="tel" name="whatsapp" placeholder="WhatsApp" required style="border:1px solid var(--hairline);border-radius:3px;padding:12px 14px;margin-top:8px;">
+          <input type="text" name="nome" placeholder="Nome" required>
+          <input type="text" name="negocio" placeholder="Nome do restaurante" required>
+          <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
         </div>
       </div>
 

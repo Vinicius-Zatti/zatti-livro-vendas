@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
-<body>
+<body class="dark-theme">
 
 <nav>
   <div class="nav-row">
@@ -42,28 +42,35 @@
 </nav>
 
 <header class="band" style="padding-bottom:0;">
-  <div class="wrap fade-up" style="max-width:740px;">
+  <div class="wrap fade-up container-narrow">
+    <span class="badge-pill"><span class="dot"></span>Disponível agora · R$37/mês</span>
     <p class="eyebrow"><a href="/hub/" style="color:var(--amber);">Zatti Hub</a> · Disponível agora</p>
-    <h1 style="font-size:clamp(30px,4.2vw,46px);line-height:1.16;">Controle de Estoque e Compras para restaurante, bar e food service.</h1>
-    <p class="lede" style="margin-top:18px;">O módulo que tira o controle de insumo da cabeça do dono e da planilha solta. Produtos, fornecedores, cotação, pedido e contagem de estoque, num só sistema, por R$37 por mês.</p>
+    <h1 class="h1-page">Controle de Estoque e Compras para restaurante, bar e food service.</h1>
+    <p class="lede mt-md">O módulo que tira o controle de insumo da cabeça do dono e da planilha solta. Produtos, fornecedores, cotação, pedido e contagem de estoque, num só sistema, por R$37 por mês.</p>
     <div class="hero-actions"><a class="btn" href="#qualify">Quero conhecer o módulo</a></div>
   </div>
 </header>
 
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> · <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> ·
+  </div>
+</div>
+
 <section class="band">
   <div class="wrap">
     <p class="eyebrow">O problema que resolve</p>
-    <h2 style="max-width:26ch;font-size:clamp(24px,3.2vw,30px);">Sem controle de estoque, todo restaurante perde dinheiro sem perceber.</h2>
-    <p style="margin-top:20px;max-width:66ch;">A maioria dos restaurantes ainda controla compras e insumo no WhatsApp com fornecedor, planilha desatualizada ou, na pior das hipóteses, na memória do dono ou do cozinheiro. O resultado é sempre o mesmo: falta insumo no meio do serviço, sobra insumo que estraga, o preço do fornecedor sobe e ninguém percebe a tempo, e o CMV vira uma estimativa em vez de um número real.</p>
-    <p style="max-width:66ch;">O Controle de Estoque e Compras do Zatti Hub existe pra fechar essa lacuna: cada insumo cadastrado, cada fornecedor com histórico de preço, cada pedido de compra registrado, e a contagem de estoque feita pelo celular, sem planilha.</p>
+    <h2 class="h2-section measure-loose reveal">Sem controle de estoque, todo restaurante perde dinheiro sem perceber.</h2>
+    <p class="mt-md">A maioria dos restaurantes ainda controla compras e insumo no WhatsApp com fornecedor, planilha desatualizada ou, na pior das hipóteses, na memória do dono ou do cozinheiro. O resultado é sempre o mesmo: falta insumo no meio do serviço, sobra insumo que estraga, o preço do fornecedor sobe e ninguém percebe a tempo, e o CMV vira uma estimativa em vez de um número real.</p>
+    <p>O Controle de Estoque e Compras do Zatti Hub existe pra fechar essa lacuna: cada insumo cadastrado, cada fornecedor com histórico de preço, cada pedido de compra registrado, e a contagem de estoque feita pelo celular, sem planilha.</p>
   </div>
 </section>
 
 <section class="band band-dark">
   <div class="wrap">
     <p class="eyebrow">O que está disponível hoje</p>
-    <h2 style="max-width:24ch;font-size:clamp(24px,3.2vw,30px);">Quatro frentes, já em uso em restaurante real.</h2>
-    <div class="pain-list">
+    <h2 class="h2-section measure-tight reveal">Quatro frentes, já em uso em restaurante real.</h2>
+    <div class="pain-list reveal-stagger">
       <div class="pain-row">
         <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
         <p><strong>Cadastro de produtos.</strong> Cada insumo com SKU, unidade de medida e categoria, sem depender de planilha paralela.</p>
@@ -87,7 +94,7 @@
 <section class="band">
   <div class="wrap">
     <p class="eyebrow">Perguntas frequentes</p>
-    <h2 style="font-size:clamp(24px,3vw,30px);">Antes de decidir</h2>
+    <h2 class="h2-section reveal">Antes de decidir</h2>
     <div class="faq">
       <details>
         <summary>Preciso trocar de planilha pra planilha, ou o sistema puxa meus dados atuais?</summary>
@@ -110,9 +117,9 @@
 </section>
 
 <section class="band band-dark" id="qualify">
-  <div class="wrap" style="max-width:640px;">
+  <div class="wrap container-narrow">
     <p class="eyebrow">Fale com um especialista</p>
-    <div class="qualify" data-product="Estoque e Compras" style="background:var(--cream);">
+    <div class="qualify reveal" data-product="Estoque e Compras">
       <p class="qualify-q">Se eu te perguntasse agora quanto de insumo parado você tem no estoque, em reais, você sabe responder sem contar tudo na mão?</p>
       <div class="qualify-btns">
         <button type="button" class="btn btn-outline" data-answer="nao">Não</button>
@@ -143,7 +150,7 @@
         </form>
       </div>
     </div>
-    <p class="microcopy" style="text-align:center;margin-top:20px;"><a href="/hub/" style="color:var(--cream);">← Ver os outros módulos do Zatti Hub</a></p>
+    <p class="microcopy mt-md" style="text-align:center;"><a href="/hub/" style="color:var(--cream);">← Ver os outros módulos do Zatti Hub</a></p>
   </div>
 </section>
 

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
-<body>
+<body class="dark-theme">
 
 <nav>
   <div class="nav-row">
@@ -43,9 +43,10 @@
 
 <header class="hero band" id="topo" style="padding-bottom:0;">
   <div class="wrap">
-    <div class="fade-up" style="max-width:700px;">
+    <div class="fade-up container-narrow">
+      <span class="badge-pill"><span class="dot"></span>3 módulos · use hoje</span>
       <p class="eyebrow">Zatti Hub</p>
-      <h1 style="font-size:clamp(32px,4.6vw,48px);line-height:1.14;">O Método M.E.G.A., virando ferramenta que você usa todo dia.</h1>
+      <h1 class="h1-page">O Método M.E.G.A., virando ferramenta que você usa todo dia.</h1>
       <p class="lede hero-sub">Estoque e compras, fichas técnicas e controle financeiro, organizados num só lugar. Comece pelo que já está pronto, os próximos módulos chegam enquanto você usa.</p>
       <div class="hero-actions">
         <a class="btn" href="#planos">Ver planos e preços</a>
@@ -55,12 +56,18 @@
   </div>
 </header>
 
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> · <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> ·
+  </div>
+</div>
+
 <section class="band" id="planos">
   <div class="wrap">
     <p class="eyebrow">Os três módulos</p>
-    <h2 style="font-size:clamp(24px,3.2vw,30px);max-width:24ch;">Um só sistema, três frentes do seu negócio.</h2>
+    <h2 class="h2-section measure-tight reveal">Um só sistema, três frentes do seu negócio.</h2>
 
-    <div class="price-grid">
+    <div class="price-grid reveal-stagger">
 
       <div class="price-card is-live">
         <span class="badge-live">Disponível agora</span>
@@ -72,7 +79,7 @@
           <li>Contagem de estoque pelo celular</li>
           <li>Histórico de preço por fornecedor</li>
         </ul>
-        <p class="microcopy" style="margin-top:18px;"><a href="/hub/estoque/" style="color:var(--amber);font-weight:700;text-decoration:none;">Ver como funciona →</a></p>
+        <p class="microcopy mt-md"><a href="/hub/estoque/" class="link-amber">Ver como funciona →</a></p>
         <div class="qualify" data-product="Estoque e Compras">
           <p class="qualify-q">Se eu te perguntasse agora quanto de insumo parado você tem no estoque, em reais, você sabe responder sem contar tudo na mão?</p>
           <div class="qualify-btns">
@@ -113,7 +120,7 @@
           <li>Ficha técnica editável, sem planilha solta</li>
           <li>Alerta quando o preço de um insumo muda</li>
         </ul>
-        <p class="microcopy" style="margin-top:18px;"><a href="/hub/fichas-tecnicas/" style="color:var(--amber);font-weight:700;text-decoration:none;">Ver como vai funcionar →</a></p>
+        <p class="microcopy mt-md"><a href="/hub/fichas-tecnicas/" class="link-amber">Ver como vai funcionar →</a></p>
         <div class="qualify" data-product="Fichas Técnicas">
           <p class="qualify-q">Toda ficha técnica do seu cardápio tem o CMV real, atualizado com o preço que você paga hoje no fornecedor?</p>
           <div class="qualify-btns">
@@ -154,7 +161,7 @@
           <li>Fluxo de caixa do restaurante</li>
           <li>Plano de contas configurado pro seu negócio</li>
         </ul>
-        <p class="microcopy" style="margin-top:18px;"><a href="/hub/financeiro/" style="color:var(--amber);font-weight:700;text-decoration:none;">Ver como vai funcionar →</a></p>
+        <p class="microcopy mt-md"><a href="/hub/financeiro/" class="link-amber">Ver como vai funcionar →</a></p>
         <div class="qualify" data-product="Controle Financeiro">
           <p class="qualify-q">Quem não tem DRE hoje não vai ter no fim do ano. Você tem a sua?</p>
           <div class="qualify-btns">
@@ -193,7 +200,7 @@
 <section class="band band-dark">
   <div class="wrap">
     <p class="eyebrow">Perguntas frequentes</p>
-    <h2 style="font-size:clamp(24px,3vw,30px);">Antes de decidir</h2>
+    <h2 class="h2-section reveal">Antes de decidir</h2>
     <div class="faq">
       <details>
         <summary>Preciso contratar os três módulos juntos?</summary>
@@ -216,8 +223,8 @@
 </section>
 
 <section class="band closing">
-  <div class="wrap">
-    <p class="eyebrow" style="justify-content:center;">Zatti Consultoria</p>
+  <div class="wrap reveal">
+    <p class="eyebrow">Zatti Consultoria</p>
     <h2>Organizamos restaurantes para crescer.</h2>
     <div class="hero-actions">
       <a class="btn" href="#planos">Ver planos e preços</a>

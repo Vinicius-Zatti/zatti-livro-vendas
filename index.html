@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
-<body>
+<body class="dark-theme">
 
 <nav>
   <div class="nav-row">
@@ -40,14 +40,58 @@
   </div>
 </nav>
 
-<header class="band" style="padding-top:64px;padding-bottom:64px;">
-  <div class="wrap fade-up" style="max-width:760px;">
-    <p class="eyebrow">Zatti Consultoria</p>
-    <h1 style="font-size:clamp(32px,4.6vw,50px);line-height:1.14;">Organizamos restaurantes para crescer.</h1>
-    <p class="lede" style="margin-top:20px;max-width:56ch;">Gestão implementada para food service. Do diagnóstico ao resultado mensurável, sem sair antes do negócio estar de fato organizado. Escolha o caminho certo pro seu momento agora.</p>
+<header class="hero band" style="padding-top:64px;padding-bottom:0;">
+  <div class="wrap hero-grid">
+    <div class="fade-up">
+      <span class="badge-pill"><span class="dot"></span>Gestão Implementada · Método M.E.G.A.</span>
+      <p class="eyebrow">Zatti Consultoria</p>
+      <h1>Organizamos restaurantes para crescer.</h1>
+      <p class="lede hero-sub" style="max-width:56ch;">Gestão implementada para food service. Do diagnóstico ao resultado mensurável, sem sair antes do negócio estar de fato organizado. Escolha o caminho certo pro seu momento agora.</p>
+    </div>
+    <div class="fade-up mega-visual" aria-hidden="true">
+      <svg class="mega-symbol" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Símbolo do Método M.E.G.A.">
+        <defs>
+          <radialGradient id="megaDotGrad" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#3d5c76"/>
+            <stop offset="55%" stop-color="#1A3A52"/>
+            <stop offset="100%" stop-color="#0D1F2D"/>
+          </radialGradient>
+          <filter id="megaGlow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="16" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <circle class="mega-glow-pulse" cx="600" cy="600" r="330" fill="none" stroke="#C9882A" stroke-width="2" opacity=".35"/>
+        <g class="mega-ring" filter="url(#megaGlow)">
+          <path d="M 749.05 294.41 A 340 340 0 0 1 905.59 450.95" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 905.59 749.05 A 340 340 0 0 1 749.05 905.59" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 450.95 905.59 A 340 340 0 0 1 294.41 749.05" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 294.41 450.95 A 340 340 0 0 1 450.95 294.41" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+        </g>
+        <g class="mega-node">
+          <circle cx="600" cy="260" r="54" fill="url(#megaDotGrad)"/>
+          <text x="600" y="168" text-anchor="middle" class="mega-label">E</text>
+        </g>
+        <g class="mega-node">
+          <circle cx="940" cy="600" r="54" fill="url(#megaDotGrad)"/>
+          <text x="1044" y="616" text-anchor="middle" class="mega-label">G</text>
+        </g>
+        <g class="mega-node">
+          <circle cx="600" cy="940" r="54" fill="url(#megaDotGrad)"/>
+          <text x="600" y="1064" text-anchor="middle" class="mega-label">A</text>
+        </g>
+        <g class="mega-node">
+          <circle cx="260" cy="600" r="54" fill="url(#megaDotGrad)"/>
+          <text x="156" y="616" text-anchor="middle" class="mega-label">M</text>
+        </g>
+      </svg>
+    </div>
   </div>
   <div class="wrap">
-    <div class="facts">
+    <div class="facts reveal-stagger">
       <div class="fact"><span class="num">90 dias</span><span class="lbl">Pelo menos 5 pontos de CMV recuperados</span></div>
       <div class="fact"><span class="num">R$37</span><span class="lbl">Método completo em livro, investimento único</span></div>
       <div class="fact"><span class="num">9 a 12 meses</span><span class="lbl">De acompanhamento na consultoria completa</span></div>
@@ -55,11 +99,17 @@
   </div>
 </header>
 
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> · <span>90 dias</span> primeiro resultado · <span>Método M.E.G.A.</span> · BPO financeiro · gestão estratégica · marketing · <span>Organizamos restaurantes para crescer</span> ·
+  </div>
+</div>
+
 <section class="band band-dark">
   <div class="wrap">
     <p class="eyebrow">Por onde começar</p>
-    <h2 style="max-width:20ch;font-size:clamp(24px,3.2vw,32px);">Três formas de aplicar o Método M.E.G.A., de acordo com o seu momento.</h2>
-    <div class="card-grid">
+    <h2 class="h2-section measure-tight reveal">Três formas de aplicar o Método M.E.G.A., de acordo com o seu momento.</h2>
+    <div class="card-grid reveal-stagger">
       <a class="product-card" href="/livro/">
         <p class="eyebrow">R$37 · investimento único</p>
         <h3>Livro Método M.E.G.A.</h3>
@@ -85,40 +135,85 @@
 <section class="band">
   <div class="wrap" style="text-align:center;">
     <p class="eyebrow">O Método M.E.G.A.</p>
-    <h2 style="max-width:22ch;margin:0 auto;font-size:clamp(24px,3.2vw,32px);">Quatro etapas em ciclo, nunca em linha reta.</h2>
-    <div class="cycle-wrap">
-      <svg class="cycle-svg" viewBox="0 0 320 320" width="260" height="260">
-        <circle cx="160" cy="160" r="112" fill="none" stroke="#0D1F2D26" stroke-width="1.5"/>
-        <path d="M160 48 A112 112 0 0 1 272 160" fill="none" stroke="#C9882A" stroke-width="2"/>
-        <path d="M272 160 A112 112 0 0 1 160 272" fill="none" stroke="#C9882A" stroke-width="2" opacity=".75"/>
-        <path d="M160 272 A112 112 0 0 1 48 160" fill="none" stroke="#C9882A" stroke-width="2" opacity=".5"/>
-        <path d="M48 160 A112 112 0 0 1 160 48" fill="none" stroke="#C9882A" stroke-width="2" opacity=".3"/>
-        <circle cx="160" cy="48" r="9" fill="#C9882A"/>
-        <circle cx="272" cy="160" r="9" fill="#C9882A" opacity=".85"/>
-        <circle cx="160" cy="272" r="9" fill="#C9882A" opacity=".65"/>
-        <circle cx="48" cy="160" r="9" fill="#C9882A" opacity=".45"/>
-        <text x="160" y="53" fill="#0D1F2D" font-size="12" text-anchor="middle">M</text>
-        <text x="272" y="165" fill="#0D1F2D" font-size="12" text-anchor="middle">E</text>
-        <text x="160" y="277" fill="#0D1F2D" font-size="12" text-anchor="middle">G</text>
-        <text x="48" y="165" fill="#0D1F2D" font-size="12" text-anchor="middle">A</text>
+    <h2 class="h2-section measure-tight reveal" style="margin:0 auto;">Quatro etapas em ciclo, nunca em linha reta.</h2>
+    <div class="cycle-wrap reveal">
+      <svg class="mega-symbol mega-symbol--static" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Símbolo do Método M.E.G.A.">
+        <defs>
+          <radialGradient id="megaDotGrad2" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#3d5c76"/>
+            <stop offset="55%" stop-color="#1A3A52"/>
+            <stop offset="100%" stop-color="#0D1F2D"/>
+          </radialGradient>
+          <filter id="megaGlow2" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="16" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <circle class="mega-glow-pulse" cx="600" cy="600" r="330" fill="none" stroke="#C9882A" stroke-width="2" opacity=".35"/>
+        <g class="mega-ring" filter="url(#megaGlow2)">
+          <path d="M 749.05 294.41 A 340 340 0 0 1 905.59 450.95" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 905.59 749.05 A 340 340 0 0 1 749.05 905.59" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 450.95 905.59 A 340 340 0 0 1 294.41 749.05" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 294.41 450.95 A 340 340 0 0 1 450.95 294.41" fill="none" stroke="#C9882A" stroke-width="7" stroke-linecap="round"/>
+        </g>
+        <g class="mega-node">
+          <circle cx="600" cy="260" r="54" fill="url(#megaDotGrad2)"/>
+          <text x="600" y="168" text-anchor="middle" class="mega-label">E</text>
+        </g>
+        <g class="mega-node">
+          <circle cx="940" cy="600" r="54" fill="url(#megaDotGrad2)"/>
+          <text x="1044" y="616" text-anchor="middle" class="mega-label">G</text>
+        </g>
+        <g class="mega-node">
+          <circle cx="600" cy="940" r="54" fill="url(#megaDotGrad2)"/>
+          <text x="600" y="1064" text-anchor="middle" class="mega-label">A</text>
+        </g>
+        <g class="mega-node">
+          <circle cx="260" cy="600" r="54" fill="url(#megaDotGrad2)"/>
+          <text x="156" y="616" text-anchor="middle" class="mega-label">M</text>
+        </g>
       </svg>
     </div>
-    <div class="cycle-caption">
+    <div class="cycle-caption reveal-stagger">
       <div><div class="letter">M</div><div class="word">Mapeia</div><div class="desc">Diagnóstico com dado real, sem achismo</div></div>
       <div><div class="letter">E</div><div class="word">Estrutura</div><div class="desc">Organiza finanças e operação</div></div>
       <div><div class="letter">G</div><div class="word">Garante</div><div class="desc">Tira do papel, vira rotina</div></div>
       <div><div class="letter">A</div><div class="word">Acompanha</div><div class="desc">Monitora e ajusta com o tempo</div></div>
     </div>
+    <div class="terminal reveal" style="text-align:left;">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+        <span class="terminal-title">diagnóstico — método m.e.g.a.</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">&gt;</span> mapeia --negocio="restaurante real"</div>
+        <div class="muted">CMV atual: 38% · sem plano de contas · sem rotina definida</div>
+        <div class="gap"></div>
+        <div><span class="prompt">&gt;</span> estrutura --implementar</div>
+        <div class="muted">plano de contas criado · fichas técnicas atualizadas</div>
+        <div class="gap"></div>
+        <div><span class="prompt">&gt;</span> garante --rotina</div>
+        <div class="muted">responsável definido por tarefa · processo virou hábito</div>
+        <div class="gap"></div>
+        <div><span class="prompt">&gt;</span> acompanha --ciclo=90d</div>
+        <div class="muted">dashboard semanal ativo · ajuste contínuo</div>
+        <div class="gap"></div>
+        <div><span class="ok">✓ resultado:</span> CMV reduzido em pelo menos 5 pontos, 90 dias</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="band">
-  <div class="wrap author-row">
-    <div class="avatar" aria-hidden="true">VZ</div>
+  <div class="wrap author-row reveal">
+    <div class="avatar" aria-hidden="true"><img src="/assets/vinicius.jpeg" alt=""></div>
     <div>
       <p class="eyebrow">Sobre o fundador</p>
       <h2 style="font-size:22px;">Vinícius Zanetti</h2>
-      <p style="margin-top:10px;">Fundador da Zatti Consultoria, especializada em bares e restaurantes. O trabalho se apoia em três pilares: BPO financeiro, gestão estratégica e marketing, sempre orientado a resultado real. O Método M.E.G.A. nasceu da experiência direta com restaurantes reais.</p>
+      <p class="mt-sm">Fundador da Zatti Consultoria, especializada em bares e restaurantes. O trabalho se apoia em três pilares: BPO financeiro, gestão estratégica e marketing, sempre orientado a resultado real. O Método M.E.G.A. nasceu da experiência direta com restaurantes reais.</p>
     </div>
   </div>
 </section>
@@ -144,6 +239,17 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.25/dist/lenis.min.js"></script>
+<script>
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && window.Lenis) {
+    var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    requestAnimationFrame(function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    });
+  }
+</script>
 <script src="/assets/main.js"></script>
+<script type="module" src="/assets/mega-symbol.js"></script>
 </body>
 </html>
