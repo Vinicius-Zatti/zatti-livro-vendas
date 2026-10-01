@@ -17,6 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var wide = window.matchMedia("(min-width: 1200px)");
   var BASE = 360;
   var cur = { rx: 0, ry: 0, y: 0 };
+  // No celular o símbolo fica no logo do topo; fora da tela, a animação para (economiza bateria).
+  var anchorVisible = true;
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      anchorVisible = entries[0].isIntersecting;
+    }).observe(anchor);
+  }
   var start = performance.now();
 
   function flying() { return wide.matches && !reduce; }
@@ -64,6 +71,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function frame(now) {
+    if (!flying() && !anchorVisible) {
+      requestAnimationFrame(frame);
+      return;
+    }
     var t = (now - start) / 1000;
     var p = pageProgress();
     // Quanto do voo já aconteceu: 0 no topo, 1 depois de rolar ~55% da altura do topo.
