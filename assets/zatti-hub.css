@@ -50,10 +50,52 @@ body.pagina-hub .band:not(.band-light){background:radial-gradient(ellipse 70% 60
 .hero .wrap.hub-hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
 @media(min-width:900px){.hero .wrap.hub-hero-grid{grid-template-columns:1.25fr .75fr;}}
 .hero-hub .h1-page{margin-top:18px;}
-.phone-wrap{display:flex;justify-content:center;position:relative;}
-.phone-wrap::before{content:"";position:absolute;inset:10% 5%;background:radial-gradient(circle,#C9882A40,transparent 65%);filter:blur(30px);}
-.phone{position:relative;width:min(260px,62vw);aspect-ratio:9/19.5;border-radius:38px;padding:10px;background:linear-gradient(160deg,#5b7184,#2a4257 45%,#40586c);box-shadow:0 40px 80px -34px #06121bcc,0 0 0 1px #F5F0E833 inset,0 0 28px #C9882A33;}
-.phone-screen{width:100%;height:100%;border-radius:30px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 80% 50% at 50% 45%,#315A7380,transparent 70%),linear-gradient(160deg,#1A3A52,#0D1F2D);}
-.phone-screen img{width:78%;height:auto;}
 .offer-logo{height:64px;width:auto;margin:0 auto 6px;}
 .closing-hub .closing-logo{width:min(380px,80vw);height:auto;margin:0 auto 18px;}
+
+/* Símbolo M.E.G.A. em 3D (mega-3d.js), a partir do símbolo oficial da identidade digital V2.1:
+   mesma geometria (viewBox 160 160 880 880), arcos em âmbar metálico com brilho, nós em marfim metálico
+   (azul metálico sobre fundo claro). Nós: E topo, G direita, A base, M esquerda. */
+.m3-defs{position:absolute;width:0;height:0;overflow:hidden;}
+.mega3d-stage{position:relative;width:min(340px,72vw);aspect-ratio:1;margin:0 auto;perspective:1000px;transition:opacity .5s ease;pointer-events:none;}
+.mega3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform;}
+.m3-halo{position:absolute;inset:4%;border-radius:50%;background:radial-gradient(circle,#C9882A26 0%,#12336B30 40%,transparent 70%);filter:blur(14px);}
+.m3-ring{position:absolute;inset:0;transform:translateZ(var(--z));opacity:var(--o);}
+.m3-ring svg{width:100%;height:100%;overflow:visible;display:block;}
+.m3-ring path{fill:none;stroke:url(#m3-ambar-metal);stroke-width:6;stroke-linecap:round;}
+.m3-ring:not(.m3-front) path{stroke:#8a5a1f;}
+.m3-front svg{filter:url(#m3-glow);}
+.m3-front path{stroke-width:7;}
+.m3-node{position:absolute;width:10.45%;aspect-ratio:1;margin:-5.225% 0 0 -5.225%;transform-style:preserve-3d;}
+.m3-e{left:50%;top:11.36%;}.m3-g{left:88.64%;top:50%;}.m3-a{left:50%;top:88.64%;}.m3-m{left:11.36%;top:50%;}
+.m3-sphere{display:block;width:100%;height:100%;border-radius:50%;transform:rotateY(var(--bry,0deg)) rotateX(var(--brx,0deg));
+  background:radial-gradient(circle at 32% 25%,#FFFFFF 0%,#F5F0E8 38%,#AAB6BE 72%,#5E6D76 100%);
+  box-shadow:0 0 0 1px #FFFFFFcc inset,0 8px 16px -6px #00000099,0 0 16px #F5F0E833;transition:background .4s ease,box-shadow .4s ease;}
+.mega3d-stage.on-light .m3-sphere{background:radial-gradient(circle at 30% 22%,#4C7189 0%,#1A3A52 38%,#0D1F2D 76%,#050B11 100%);box-shadow:0 0 0 1px #4C718966 inset,0 8px 16px -6px #0D1F2D80;}
+.mega3d-stage.on-light .m3-halo{background:radial-gradient(circle,#C9882A1f 0%,transparent 65%);}
+.m3-orbits{position:absolute;inset:-14%;transform-style:preserve-3d;}
+.m3-orbit{position:absolute;inset:0;border-radius:50%;border:1px solid #F5F0E826;}
+.m3-orbit.o1{transform:rotateX(74deg) rotateZ(0deg);border-color:#C9882A55;}
+.m3-orbit.o2{inset:7%;transform:rotateY(70deg) rotateX(20deg);}
+.mega3d-stage.on-light .m3-orbit{border-color:#0D1F2D22;}
+.mega3d-stage.on-light .m3-orbit.o1{border-color:#C9882A66;}
+@media(prefers-reduced-motion:no-preference){
+  .m3-orbit.o1{animation:m3orbita 24s linear infinite;}
+  .m3-orbit.o2{animation:m3orbita2 36s linear infinite;}
+}
+@keyframes m3orbita{to{transform:rotateX(74deg) rotateZ(360deg);}}
+@keyframes m3orbita2{to{transform:rotateY(70deg) rotateX(380deg);}}
+.mega3d-stage.is-hidden{opacity:0;}
+@media(min-width:1200px){
+  body.pagina-hub .band .wrap{max-width:780px;margin-left:max(28px,calc(50vw - 560px));}
+  .hero .wrap.hub-hero-grid{grid-template-columns:1fr;}
+  .mega3d-stage{position:fixed;z-index:6;top:50%;right:max(24px,calc(50vw - 600px));width:clamp(240px,calc(50vw - 300px),360px);margin:-180px 0 0;}
+  .closing-hub .wrap{margin-left:auto !important;}
+}
+@media(prefers-reduced-motion:reduce){.mega3d{transform:rotateX(-8deg) rotateY(-20deg);}}
+
+/* Botão flutuante do WhatsApp */
+.wpp-float{position:fixed;right:18px;bottom:18px;z-index:30;display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 12px 28px -10px #0D1F2Dcc;transition:transform .15s ease;}
+.wpp-float:hover{transform:translateY(-2px);}
+.wpp-float svg{width:28px;height:28px;}
+@media(max-width:600px){.wpp-float span{display:none;}.wpp-float{padding:14px;}}
