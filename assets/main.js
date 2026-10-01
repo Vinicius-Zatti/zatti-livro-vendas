@@ -53,6 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
       var btn = form.querySelector("button[type=submit]");
       var originalText = btn ? btn.textContent : "";
       if (btn) { btn.disabled = true; btn.textContent = "Enviando..."; }
+      // Pesquisa da consultoria: também vai ao Vini (WhatsApp de Vinícius + CRM), sem esperar.
+      if (form.classList.contains("survey-form") && typeof enviarLeadVini === "function") {
+        enviarLeadVini(form, "Consultoria (pesquisa)");
+      }
       fetch(form.action, {
         method: "POST",
         body: new FormData(form),

@@ -1,5 +1,27 @@
-// Página de vendas do Zatti Hub: abre o formulário em modal, grava o lead no Formspree
-// e só depois segue para o pagamento. Se o Formspree falhar, a venda não é bloqueada.
+// Páginas de venda: abre o formulário em modal, manda o lead ao Formspree (e-mail) e ao Vini
+// (WhatsApp de Vinícius + CRM) em paralelo, e só depois segue para o pagamento.
+// Se um dos dois falhar ou demorar mais de ~2,5 s, a venda não é bloqueada.
+var VINI_LEADS_URL = "https://vini-production-33a6.up.railway.app/site/lead";
+var CAMPOS_LEAD = ["nome", "whatsapp", "faturamento_atual", "faturamento_desejado", "produto", "negocio", "faturamento", "cmv", "dre", "dependencia", "dificuldade"];
+
+function origemDaVisita() {
+  try { return new URLSearchParams(window.location.search).get("origem") || "site"; } catch (e) { return "site"; }
+}
+
+// Envia o lead ao Vini. Devolve uma promessa que nunca rejeita.
+function enviarLeadVini(form, produtoPadrao, signal) {
+  var dados = new FormData(form);
+  var corpo = { origem: origemDaVisita(), pagina: window.location.pathname };
+  CAMPOS_LEAD.forEach(function (c) { var v = dados.get(c); if (v) corpo[c] = String(v); });
+  if (!corpo.produto) corpo.produto = produtoPadrao || "Site";
+  return fetch(VINI_LEADS_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(corpo),
+    signal: signal,
+  }).then(function (r) { return r.ok; }).catch(function () { return false; });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   var LEADS_URL = "https://formspree.io/f/mzdnkdbv";
 
@@ -26,16 +48,21 @@ document.addEventListener("DOMContentLoaded", function () {
       var data = new FormData(form);
       data.append("origem", window.location.search || "direto");
       var controller = "AbortController" in window ? new AbortController() : null;
-      var timer = setTimeout(function () { if (controller) controller.abort(); }, 5000);
+      var timer = setTimeout(function () { if (controller) controller.abort(); }, 2500);
+      var signal = controller ? controller.signal : undefined;
 
-      fetch(LEADS_URL, {
+      var formspree = fetch(LEADS_URL, {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
-        signal: controller ? controller.signal : undefined,
+        signal: signal,
       })
         .then(function (r) { return r.ok; })
-        .catch(function () { return false; })
+        .catch(function () { return false; });
+      var vini = enviarLeadVini(form, null, signal);
+
+      Promise.all([formspree, vini])
+        .then(function (res) { return res[0] || res[1]; })
         .then(function (ok) {
           clearTimeout(timer);
           var redirect = form.getAttribute("data-redirect");
