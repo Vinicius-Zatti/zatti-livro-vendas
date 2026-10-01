@@ -138,3 +138,21 @@ body.pagina-hub .band:not(.hero-hub) > .wrap{position:relative;z-index:7;}
 .author-box{display:flex;gap:24px;align-items:flex-start;margin-top:8px;}
 .author-box img{width:112px;height:112px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--amber);}
 @media(max-width:600px){.author-box{flex-direction:column;}}
+
+/* Home e consultoria: o símbolo 3D começa grande no topo (.m3-hero-slot). */
+.m3-hero-slot{position:relative;width:min(380px,78vw);aspect-ratio:1;margin:0 auto;}
+.m3-hero-slot .m3-anchor{left:0;top:0;width:100%;}
+/* Home (m3-fundo): o símbolo vira marca d'água atrás do conteúdo, sem mexer no layout dos cards. */
+body.pagina-hub.m3-fundo .band:not(.hero-hub) .wrap{max-width:var(--maxw);margin-left:auto;margin-right:auto;}
+body.m3-fundo .m3-target{top:50%;right:-10vw;width:48vw;margin-top:-24vw;--m3-op:.28;}
+@media(max-width:899px){body.m3-fundo .m3-target{right:-24vw;width:66vw;margin-top:-33vw;--m3-op:.38;}}
+/* Fundo claro: textos da home e da consultoria que eram pensados para fundo escuro. */
+body.dark-theme .band-light .product-card p{color:var(--cream-dim);}
+body.dark-theme .band-light .survey label,body.dark-theme .band-light .lead-form label{color:var(--navy);}
+body.dark-theme .band-light .survey .hint,body.dark-theme .band-light .form-note{color:var(--ink-soft);}
+body.dark-theme .band-light .survey .options label{color:var(--ink);border-color:var(--hairline);}
+body.dark-theme .band-light .author-row h2{color:var(--navy);}
+body.dark-theme .band-light .ledger-row h3{color:var(--navy);}
+body.dark-theme .band-light .ledger-row p{color:var(--ink-soft);}
+body.dark-theme .band-light .ledger,body.dark-theme .band-light .ledger-row{border-color:var(--hairline);}
+body.dark-theme .band-light .product-card h3{color:var(--cream);}
