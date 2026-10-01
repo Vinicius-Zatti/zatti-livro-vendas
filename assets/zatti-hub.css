@@ -57,7 +57,7 @@ body.pagina-hub .band:not(.band-light){background:radial-gradient(ellipse 70% 60
    mesma geometria (viewBox 160 160 880 880), arcos em âmbar metálico com brilho, nós em marfim metálico
    (azul metálico sobre fundo claro). Nós: E topo, G direita, A base, M esquerda. */
 .m3-defs{position:absolute;width:0;height:0;overflow:hidden;}
-.mega3d-stage{position:absolute;inset:0;perspective:1000px;transition:opacity .5s ease;pointer-events:none;}
+.mega3d-stage{position:absolute;inset:0;perspective:1000px;pointer-events:none;}
 .mega3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform;}
 .m3-halo{position:absolute;inset:4%;border-radius:50%;background:radial-gradient(circle,#C9882A26 0%,#12336B30 40%,transparent 70%);filter:blur(14px);}
 .m3-ring{position:absolute;inset:0;transform:translateZ(var(--z));opacity:var(--o);}
@@ -96,8 +96,18 @@ body.pagina-hub .band:not(.band-light){background:radial-gradient(ellipse 70% 60
 /* Lugar exato do símbolo dentro do logo oficial (centro 522,450 no viewBox 300 130 1030 620). */
 .m3-anchor{position:absolute;left:9%;top:30.74%;width:25.13%;aspect-ratio:1;}
 .m3-anchor .mega3d-stage{position:absolute;inset:0;}
-.m3-target{position:fixed;visibility:hidden;pointer-events:none;top:50%;right:max(24px,calc(50vw - 600px));width:clamp(240px,calc(50vw - 300px),360px);aspect-ratio:1;margin-top:-180px;}
+.m3-target{position:fixed;visibility:hidden;pointer-events:none;aspect-ratio:1;
+  /* Celular: lateral direita, grande, metade fora da tela e translúcido atrás da leitura. */
+  top:50%;right:-24vw;width:66vw;margin-top:-33vw;--m3-op:.38;}
+@media(min-width:900px){.m3-target{right:24px;width:220px;margin-top:-110px;--m3-op:1;}}
+@media(min-width:1200px){.m3-target{right:max(24px,calc(50vw - 600px));width:clamp(240px,calc(50vw - 300px),360px);margin-top:-180px;}}
 .mega3d-stage.is-flying{position:fixed;left:0;top:0;right:auto;bottom:auto;width:360px;height:360px;z-index:6;transform-origin:0 0;}
+/* O texto dos blocos passa por cima do símbolo; o fundo dos blocos fica por baixo dele. */
+body.pagina-hub .band:not(.hero-hub) > .wrap{position:relative;z-index:7;}
+@media(min-width:900px) and (max-width:1199px){
+  body.pagina-hub .band:not(.hero-hub) .wrap{max-width:calc(100vw - 300px);margin-left:28px;}
+  .closing-hub .wrap{margin-left:auto !important;}
+}
 @media(min-width:1200px){
   body.pagina-hub .band:not(.hero-hub) .wrap{max-width:780px;margin-left:max(28px,calc(50vw - 560px));}
   .hero .wrap.hub-hero-grid{grid-template-columns:1.25fr .75fr;}
@@ -106,7 +116,6 @@ body.pagina-hub .band:not(.band-light){background:radial-gradient(ellipse 70% 60
 @media(prefers-reduced-motion:reduce){.mega3d{transform:rotateX(-8deg) rotateY(-20deg);}}
 
 /* Botão flutuante do WhatsApp */
-.wpp-float{position:fixed;right:18px;bottom:18px;z-index:30;display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 12px 28px -10px #0D1F2Dcc;transition:transform .15s ease;}
+.wpp-float{position:fixed;right:18px;bottom:18px;z-index:30;display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;background:#25D366;color:#fff;border-radius:50%;box-shadow:0 12px 28px -10px #0D1F2Dcc;transition:transform .15s ease;}
 .wpp-float:hover{transform:translateY(-2px);}
-.wpp-float svg{width:28px;height:28px;}
-@media(max-width:600px){.wpp-float span{display:none;}.wpp-float{padding:14px;}}
+.wpp-float svg{width:32px;height:32px;}
