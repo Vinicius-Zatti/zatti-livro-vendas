@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Política de Privacidade | Zatti Consultoria</title>
-<meta name="description" content="Como Vinícius Zanetti e a Zatti Consultoria tratam os dados de formulários, compras e conversas por WhatsApp e Instagram.">
+<title>Diagnóstico de 5 minutos | Zatti Consultoria</title>
+<meta name="description" content="Responda 16 perguntas rápidas e veja a nota do seu restaurante em controle financeiro, CMV, processos, números e dependência do dono.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/diagnostico.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
 <body class="dark-theme">
@@ -42,37 +43,67 @@
   </div>
 </nav>
 
-<header class="hero band" style="padding-bottom:0;">
+<main class="band dg">
   <div class="wrap">
-    <p class="eyebrow">Privacidade</p>
-    <h1 class="h1-page">Política de Privacidade</h1>
-    <p class="mt-md">Última atualização: 6 de outubro de 2026.</p>
+
+    <section id="dg-inicio">
+      <p class="eyebrow">Diagnóstico gratuito · 5 minutos</p>
+      <h1 class="h1-page measure-loose">Como está o seu restaurante hoje?</h1>
+      <p class="lede mt-md">São 16 perguntas rápidas sobre controle financeiro, CMV, processos, números e o quanto a operação depende de você. No final você vê a nota de cada pilar e onde está o seu maior vazamento.</p>
+      <button class="btn mt-md" id="dg-comecar" type="button">Começar o diagnóstico</button>
+      <p class="microcopy mt-sm">Responda pensando no último mês. Não existe resposta certa: quanto mais sincero, mais útil o resultado.</p>
+    </section>
+
+    <section id="dg-quiz" hidden>
+      <div class="dg-cartao">
+        <div class="dg-progresso"><span id="dg-pilar"></span><span id="dg-progresso-texto"></span></div>
+        <div class="dg-trilho"><span id="dg-progresso-barra"></span></div>
+        <h2 class="dg-pergunta" id="dg-pergunta"></h2>
+        <div class="dg-opcoes" id="dg-opcoes"></div>
+        <button class="dg-link" id="dg-voltar" type="button">Voltar</button>
+      </div>
+    </section>
+
+    <section id="dg-contato" hidden>
+      <div class="dg-cartao">
+        <p class="eyebrow">Pronto</p>
+        <h2 class="dg-pergunta">Para quem é o resultado?</h2>
+        <p>Deixe seu nome e WhatsApp para ver a nota do seu restaurante. Eu recebo o seu resultado também e posso te mostrar por onde começar.</p>
+        <form id="dg-form" novalidate>
+          <div class="dg-campos">
+            <label>Seu nome<input name="nome" type="text" autocomplete="name" required></label>
+            <label>WhatsApp com DDD<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required></label>
+            <label>Nome do restaurante (opcional)<input name="negocio" type="text"></label>
+          </div>
+          <p class="dg-erro" id="dg-erro" hidden></p>
+          <button class="btn" type="submit">Ver meu resultado</button>
+          <p class="microcopy mt-sm">Seus dados ficam comigo, conforme a <a class="link-amber" href="/privacidade/">Política de Privacidade</a>.</p>
+        </form>
+        <button class="dg-link" id="dg-contato-voltar" type="button">Voltar para a última pergunta</button>
+      </div>
+    </section>
+
+    <section id="dg-resultado" hidden>
+      <p class="eyebrow">Seu resultado</p>
+      <h1 class="h1-page">Seu restaurante hoje, de 0 a 100</h1>
+      <div class="dg-resultado-grade mt-md">
+        <div class="dg-radar" id="dg-radar"></div>
+        <div id="dg-barras"></div>
+      </div>
+      <div class="dg-fraco mt-md">
+        <p class="eyebrow" style="margin-bottom:8px;">Seu ponto mais fraco</p>
+        <h2 id="dg-fraco-nome"></h2>
+        <p class="mt-sm" id="dg-fraco-texto"></p>
+      </div>
+      <p class="mt-md">Esse diagnóstico é a versão rápida do Mapeia, a primeira etapa do Método M.E.G.A. Se quiser, eu te mostro o que fazer primeiro no seu caso.</p>
+      <div class="dg-acoes">
+        <a class="btn" id="dg-whatsapp" href="#" target="_blank" rel="noopener">Quero conversar sobre o meu resultado</a>
+        <a class="btn btn-outline" href="/consultoria/">Conhecer a consultoria</a>
+      </div>
+    </section>
+
   </div>
-</header>
-
-<section class="band band-light">
-  <div class="wrap measure-loose">
-    <p>Esta política explica como eu, Vinícius Zanetti, responsável pela Zatti Consultoria e pelo Zatti Hub, trato os dados de quem visita o site zatticonsultoria.com.br, preenche um formulário, compra um produto ou conversa comigo pelo WhatsApp ou pelo Direct do Instagram (@viniciusczanetti).</p>
-
-    <h2 class="mt-md">Quais dados eu coleto</h2>
-    <p>Nos formulários: nome, WhatsApp, nome e tipo do restaurante, faixa de faturamento e a dificuldade que você descrever. No diagnóstico de 5 minutos: também o número de unidades e as respostas, que eu uso para calcular a sua nota e preparar a nossa conversa. Nas conversas por WhatsApp e Instagram Direct: seu nome de perfil, seu número ou usuário e o texto das mensagens. Nas compras: nome, contato e a confirmação do pagamento. Os dados do cartão são tratados pelo Mercado Pago e eu não tenho acesso a eles.</p>
-
-    <h2 class="mt-md">Para que uso</h2>
-    <p>Para responder o seu contato, enviar o produto que você comprou, mostrar os produtos e serviços que fazem sentido para o seu restaurante e registrar o andamento do atendimento. Uso um assistente automatizado para organizar as conversas e sugerir respostas. Toda mensagem enviada em meu nome passa pela minha revisão antes de sair.</p>
-
-    <h2 class="mt-md">Com quem compartilho</h2>
-    <p>Não vendo nem cedo seus dados. Eles passam apenas pelos serviços necessários para o atendimento funcionar: Mercado Pago (pagamentos), Meta (WhatsApp e Instagram), provedores de hospedagem e de inteligência artificial usados para organizar as conversas, sempre limitados a essa finalidade.</p>
-
-    <h2 class="mt-md">Por quanto tempo guardo</h2>
-    <p>O texto das conversas usadas no atendimento automatizado fica guardado por até 30 dias. Os dados de cadastro e do histórico comercial ficam guardados enquanto houver relação comercial ou até você pedir a exclusão, salvo o que a lei exige manter, como registros de compra.</p>
-
-    <h2 class="mt-md" id="exclusao">Seus direitos e como excluir seus dados</h2>
-    <p>Pela Lei Geral de Proteção de Dados (Lei 13.709/2018), você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento. Para excluir, mande um e-mail para consultoriazatti@gmail.com com o assunto "Excluir meus dados", informando o WhatsApp ou o usuário do Instagram usado no contato. Eu confirmo a exclusão em até 15 dias.</p>
-
-    <h2 class="mt-md">Contato</h2>
-    <p>Dúvidas sobre esta política: consultoriazatti@gmail.com.</p>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="wrap footer-row">
@@ -97,5 +128,6 @@
 </footer>
 
 <script src="/assets/main.js"></script>
+<script src="/assets/diagnostico.js"></script>
 </body>
 </html>
