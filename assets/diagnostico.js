@@ -86,6 +86,9 @@
     el("dg-pergunta").textContent = titulo;
     var lista = el("dg-opcoes");
     lista.innerHTML = "";
+    lista.classList.add("dg-sem-hover");
+    var movimentos = 0;
+    lista.onmousemove = function () { if (++movimentos > 2) { lista.classList.remove("dg-sem-hover"); lista.onmousemove = null; } };
     opcoes.forEach(function (texto, idx) {
       var b = document.createElement("button");
       b.type = "button";

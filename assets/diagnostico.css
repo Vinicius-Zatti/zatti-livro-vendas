@@ -22,8 +22,9 @@
 .dg-opcao{font-family:var(--sans);font-size:15px;text-align:left;padding:12px 14px;border-radius:var(--radius-sm);border:1px solid var(--hairline-dark);background:transparent;color:var(--cream);cursor:pointer;line-height:1.35;-webkit-tap-highlight-color:transparent;}
 .dg-opcao:focus{outline:none;}
 .dg-opcao:focus-visible{border-color:var(--amber);}
-/* Destaque ao passar o mouse só onde existe mouse: no celular o "hover" grudava na opção seguinte. */
-@media (hover:hover){.dg-opcao:hover{border-color:var(--amber);}}
+/* A pergunta nova nasce sem destaque: a opção que fica embaixo do cursor ou do dedo não pode parecer
+   sugerida. O destaque de passar o mouse só volta depois que o mouse se mexe (ver diagnostico.js). */
+@media (hover:hover){.dg-opcoes:not(.dg-sem-hover) .dg-opcao:hover{border-color:var(--amber);}}
 .dg-opcao.is-active{border-color:var(--amber);background:var(--amber-soft);}
 .dg-link{background:none;border:0;color:var(--cream-dim);font-family:var(--sans);font-size:14px;cursor:pointer;padding:0;margin-top:20px;text-decoration:underline;}
 .dg-campos{display:grid;gap:14px;margin:22px 0;}
