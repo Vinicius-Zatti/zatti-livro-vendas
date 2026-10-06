@@ -61,6 +61,8 @@
   var perfil = {};
   var respostas = [];
   var atual = 0;
+  var ultimoPonteiro = null;
+  document.addEventListener("pointerdown", function (ev) { ultimoPonteiro = { x: ev.clientX, y: ev.clientY }; }, true);
   var el = function (id) { return document.getElementById(id); };
 
   function mostrar(id) {
@@ -86,9 +88,14 @@
     el("dg-pergunta").textContent = titulo;
     var lista = el("dg-opcoes");
     lista.innerHTML = "";
+    // O navegador dispara "mousemove" artificial quando o conteúdo muda embaixo do cursor: o destaque
+    // só volta quando o mouse sai mais de 10 px do ponto onde estava ao trocar de pergunta.
     lista.classList.add("dg-sem-hover");
-    var movimentos = 0;
-    lista.onmousemove = function () { if (++movimentos > 2) { lista.classList.remove("dg-sem-hover"); lista.onmousemove = null; } };
+    var origem = ultimoPonteiro;
+    lista.onmousemove = function (ev) {
+      if (!origem) { origem = { x: ev.clientX, y: ev.clientY }; return; }
+      if (Math.abs(ev.clientX - origem.x) + Math.abs(ev.clientY - origem.y) > 10) { lista.classList.remove("dg-sem-hover"); lista.onmousemove = null; }
+    };
     opcoes.forEach(function (texto, idx) {
       var b = document.createElement("button");
       b.type = "button";
