@@ -1,13 +1,29 @@
 /* Diagnóstico de 5 minutos (06/10/2026): usa os tokens de style.css. */
-.dg{min-height:70vh;}
-.dg-cartao{background:var(--navy-2);border:1px solid var(--hairline-dark);border-radius:var(--radius-md);padding:28px;max-width:var(--container-narrow);}
+/* Coluna de celular centralizada também no computador (pedido de Vinícius, 06/10). */
+.dg{min-height:70vh;padding:40px 0 64px;}
+.dg .wrap{max-width:520px;padding:0 16px;}
+.dg-titulo{font-size:clamp(28px,6vw,36px);line-height:1.15;}
+.dg-btn{width:100%;justify-content:center;margin:18px 0 26px;}
+.dg-exemplo{position:relative;}
+.dg-exemplo-rotulo{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);margin:0 0 6px;}
+.dg-geral{display:flex;align-items:baseline;gap:8px;margin-bottom:6px;}
+.dg-geral span{font-size:14px;color:var(--cream-dim);}
+.dg-geral strong{font-family:var(--serif);font-size:44px;line-height:1;color:var(--amber);}
+.dg-geral small{font-size:13px;color:var(--cream-dim);}
+.dg-subtitulo{font-size:24px;margin:28px 0 10px;}
+.dg-plano{margin:0 0 18px;padding-left:20px;}
+.dg-plano li{margin-bottom:8px;max-width:none;}
+.dg-cartao{background:var(--navy-2);border:1px solid var(--hairline-dark);border-radius:var(--radius-md);padding:20px;}
 .dg-progresso{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:var(--cream-dim);margin-bottom:10px;}
 .dg-trilho{height:4px;background:var(--hairline-dark);border-radius:2px;overflow:hidden;margin-bottom:26px;}
 .dg-trilho span{display:block;height:100%;background:var(--amber);transition:width .25s ease;}
-.dg-pergunta{font-size:clamp(22px,3vw,28px);line-height:1.25;margin-bottom:22px;}
-.dg-opcoes{display:grid;gap:10px;}
-.dg-opcao{font-family:var(--sans);font-size:16px;text-align:left;padding:15px 18px;border-radius:var(--radius-sm);border:1px solid var(--hairline-dark);background:transparent;color:var(--cream);cursor:pointer;line-height:1.35;}
-.dg-opcao:hover,.dg-opcao:focus-visible{border-color:var(--amber);outline:none;}
+.dg-pergunta{font-size:22px;line-height:1.25;margin-bottom:16px;}
+.dg-opcoes{display:grid;gap:8px;}
+.dg-opcao{font-family:var(--sans);font-size:15px;text-align:left;padding:12px 14px;border-radius:var(--radius-sm);border:1px solid var(--hairline-dark);background:transparent;color:var(--cream);cursor:pointer;line-height:1.35;-webkit-tap-highlight-color:transparent;}
+.dg-opcao:focus{outline:none;}
+.dg-opcao:focus-visible{border-color:var(--amber);}
+/* Destaque ao passar o mouse só onde existe mouse: no celular o "hover" grudava na opção seguinte. */
+@media (hover:hover){.dg-opcao:hover{border-color:var(--amber);}}
 .dg-opcao.is-active{border-color:var(--amber);background:var(--amber-soft);}
 .dg-link{background:none;border:0;color:var(--cream-dim);font-family:var(--sans);font-size:14px;cursor:pointer;padding:0;margin-top:20px;text-decoration:underline;}
 .dg-campos{display:grid;gap:14px;margin:22px 0;}
@@ -15,8 +31,7 @@
 .dg-campos input{font-family:var(--sans);font-size:16px;padding:13px 14px;border:1px solid var(--hairline-dark);border-radius:var(--radius-sm);background:var(--navy);color:var(--cream);width:100%;}
 .dg-campos input:focus{border-color:var(--amber);outline:none;}
 .dg-erro{color:#E8A87C;font-size:14px;margin:0 0 12px;}
-.dg-resultado-grade{display:grid;gap:28px;align-items:center;}
-.dg-radar svg{width:100%;max-width:360px;margin:0 auto;}
+.dg-radar svg{width:100%;max-width:300px;margin:0 auto 10px;}
 .dg-grade{fill:none;stroke:var(--hairline-dark);stroke-width:1;}
 .dg-area{fill:var(--amber-soft);stroke:var(--amber);stroke-width:2;}
 .dg-eixo{fill:var(--cream-dim);font-family:var(--sans);font-size:12px;}
@@ -27,5 +42,5 @@
 .dg-barra.is-fraco .dg-barra-nome,.dg-barra.is-fraco .dg-barra-nota{color:var(--amber);}
 .dg-fraco{border-left:3px solid var(--amber);padding:4px 0 4px 18px;margin-top:8px;}
 .dg-acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
-@media (min-width:860px){.dg-resultado-grade{grid-template-columns:1fr 1fr;}}
-@media (max-width:520px){.dg-cartao{padding:20px;}.dg-barra{grid-template-columns:minmax(0,1fr) 34px;}.dg-barra-trilho{grid-column:1 / -1;grid-row:2;}}
+.dg-barra{grid-template-columns:minmax(0,1fr) 34px;row-gap:6px;}
+.dg-barra-trilho{grid-column:1 / -1;grid-row:2;}

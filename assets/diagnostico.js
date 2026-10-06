@@ -14,15 +14,20 @@
   ];
 
   var PILARES = [
-    { chave: "financeiro", nome: "Controle financeiro", perguntas: [0, 1, 2],
+    { chave: "financeiro", plano: ["Separe a conta do restaurante da sua e defina uma retirada fixa por mês.", "Lance toda entrada e saída numa planilha ou sistema, toda semana, sem deixar acumular.", "Feche o mês com um resultado simples: faturamento, custos, despesas e quanto sobrou."],
+      nome: "Controle financeiro", perguntas: [0, 1, 2],
       fraco: "Sem saber quanto sobra no fim do mês, cada decisão vira aposta. É o primeiro ponto que eu arrumo em qualquer restaurante, porque sem ele o resto não se sustenta." },
-    { chave: "cmv", nome: "CMV", perguntas: [3, 4, 5, 6],
+    { chave: "cmv", plano: ["Conte o estoque toda semana, sempre no mesmo dia.", "Monte a ficha técnica dos pratos que mais vendem, com o custo de cada ingrediente.", "Defina o ponto de reposição de cada item e cote com pelo menos 3 fornecedores antes de comprar."],
+      nome: "CMV", perguntas: [3, 4, 5, 6],
       fraco: "O CMV é onde o dinheiro escapa sem fazer barulho: compra sem contagem, preço sem cotação e prato sem ficha técnica. Quem passa a contar o estoque e cotar toda semana costuma baixar o CMV em pelo menos 5 pontos em 60 dias." },
-    { chave: "processos", nome: "Processos", perguntas: [7, 8, 9],
+    { chave: "processos", plano: ["Escreva o checklist de abertura e fechamento e defina quem confere.", "Padronize o recebimento de mercadoria: peso, validade e nota, sempre.", "Monte um roteiro de treino para quem entra, para não depender de quem está no turno."],
+      nome: "Processos", perguntas: [7, 8, 9],
       fraco: "Quando cada um faz do seu jeito, a qualidade depende de quem está no turno. Processo simples e conferido é o que deixa a operação igual todo dia, com ou sem você." },
-    { chave: "dados", nome: "Decisões com dados", perguntas: [10, 11, 12],
+    { chave: "dados", plano: ["Calcule a margem de cada prato a partir da ficha técnica.", "Cruze margem com volume de vendas para saber o que destacar, o que reajustar e o que tirar do cardápio.", "Acompanhe toda semana três números: vendas, despesas e quanto sobrou."],
+      nome: "Decisões com dados", perguntas: [10, 11, 12],
       fraco: "Preço e cardápio decididos no feeling deixam lucro na mesa. Saber quanto cada prato realmente dá de lucro muda o que você destaca, o que você corta e quanto você cobra." },
-    { chave: "dono", nome: "Dependência do dono", perguntas: [13, 14, 15],
+    { chave: "dono", plano: ["Liste tudo o que hoje só você resolve.", "Transforme o que se repete em processo escrito e passe para alguém do time.", "Defina os números que você acompanha de longe, para controlar sem precisar estar lá."],
+      nome: "Dependência do dono", perguntas: [13, 14, 15],
       fraco: "Se o restaurante para quando você sai, você não tem um negócio, tem um emprego que não te deixa tirar folga. Dá para mudar isso com rotina e pessoas certas, sem perder o controle." },
   ];
 
@@ -72,7 +77,10 @@
       titulo = PERGUNTAS[e.i][0]; opcoes = PERGUNTAS[e.i][1]; rotulo = pilarDa(e.i).nome; escolhida = respostas[e.i];
       escolhida = escolhida === undefined ? undefined : opcoes[escolhida];
     }
-    el("dg-progresso-texto").textContent = "Pergunta " + (atual + 1) + " de " + etapas.length;
+    // O perfil não conta como pergunta: o diagnóstico tem 16 (pedido de Vinícius, 06/10).
+    el("dg-progresso-texto").textContent = e.tipo === "perfil"
+      ? "Antes de começar: " + (atual + 1) + " de " + PERFIL.length
+      : "Pergunta " + (e.i + 1) + " de " + PERGUNTAS.length;
     el("dg-progresso-barra").style.width = Math.round((atual / etapas.length) * 100) + "%";
     el("dg-pilar").textContent = rotulo;
     el("dg-pergunta").textContent = titulo;
@@ -87,6 +95,8 @@
       lista.appendChild(b);
     });
     el("dg-voltar").hidden = atual === 0;
+    // No celular o toque deixava a opção da tela seguinte com foco/destaque: tira o foco ao trocar.
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
   }
 
   function escolher(idx, texto) {
@@ -101,7 +111,9 @@
       return { pilar: p, nota: Math.round((soma / (p.perguntas.length * 3)) * 100) };
     });
     var fraco = notas.slice().sort(function (a, b) { return a.nota - b.nota; })[0];
-    return { notas: notas, fraco: fraco };
+    // Nota geral: média dos 5 pilares (cada pilar pesa igual, como no radar).
+    var geral = Math.round(notas.reduce(function (t, n) { return t + n.nota; }, 0) / notas.length);
+    return { notas: notas, fraco: fraco, geral: geral };
   }
 
   function origem() {
@@ -146,21 +158,39 @@
     return svg + "</svg>";
   }
 
-  function renderResultado(d) {
-    el("dg-radar").innerHTML = radar(d.notas);
-    el("dg-barras").innerHTML = d.notas.map(function (nt) {
+  function barras(d) {
+    return d.notas.map(function (nt) {
       var fraco = nt === d.fraco ? " is-fraco" : "";
       return '<div class="dg-barra' + fraco + '"><span class="dg-barra-nome">' + nt.pilar.nome + '</span>' +
         '<span class="dg-barra-trilho"><span style="width:' + Math.max(nt.nota, 2) + '%"></span></span>' +
         '<span class="dg-barra-nota">' + nt.nota + "</span></div>";
     }).join("");
+  }
+
+  function renderResultado(d) {
+    el("dg-geral").textContent = d.geral;
+    el("dg-radar").innerHTML = radar(d.notas);
+    el("dg-barras").innerHTML = barras(d);
     el("dg-fraco-nome").textContent = d.fraco.pilar.nome + " (" + d.fraco.nota + " de 100)";
     el("dg-fraco-texto").textContent = d.fraco.pilar.fraco;
+    el("dg-plano").innerHTML = d.fraco.pilar.plano.map(function (t) { return "<li>" + t + "</li>"; }).join("");
     var msg = "Oi, Vinícius! Fiz o diagnóstico de 5 minutos e meu ponto mais fraco deu " + d.fraco.pilar.nome + " (" + d.fraco.nota + "). Quero entender o que fazer.";
     el("dg-whatsapp").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+    // A página da consultoria usa isto para não pedir outro questionário (ver consultoria-diagnostico.js).
+    try { window.sessionStorage.setItem("zattiDiagnostico", JSON.stringify({ geral: d.geral, fraco: d.fraco.pilar.nome + " (" + d.fraco.nota + ")" })); } catch (e) { /* sem armazenamento: a consultoria mostra o texto genérico */ }
+  }
+
+  // Exemplo da tela inicial (números fictícios, para a pessoa ver o que vai receber).
+  function renderExemplo() {
+    var nomes = [58, 35, 50, 42, 27];
+    var notas = PILARES.map(function (p, i) { return { pilar: p, nota: nomes[i] }; });
+    var d = { notas: notas, fraco: notas[4] };
+    el("dg-exemplo-radar").innerHTML = radar(notas);
+    el("dg-exemplo-barras").innerHTML = barras(d);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    renderExemplo();
     el("dg-comecar").addEventListener("click", function () { atual = 0; renderEtapa(); mostrar("dg-quiz"); });
     el("dg-voltar").addEventListener("click", function () { if (atual > 0) { atual--; renderEtapa(); } });
     el("dg-contato-voltar").addEventListener("click", function () { atual = etapas.length - 1; renderEtapa(); mostrar("dg-quiz"); });

@@ -48,10 +48,15 @@
 
     <section id="dg-inicio">
       <p class="eyebrow">Diagnóstico gratuito · 5 minutos</p>
-      <h1 class="h1-page measure-loose">Como está o seu restaurante hoje?</h1>
-      <p class="lede mt-md">São 16 perguntas rápidas sobre controle financeiro, CMV, processos, números e o quanto a operação depende de você. No final você vê a nota de cada pilar e onde está o seu maior vazamento.</p>
-      <button class="btn mt-md" id="dg-comecar" type="button">Começar o diagnóstico</button>
-      <p class="microcopy mt-sm">Responda pensando no último mês. Não existe resposta certa: quanto mais sincero, mais útil o resultado.</p>
+      <h1 class="dg-titulo">Como está o seu restaurante hoje?</h1>
+      <p class="mt-sm">16 perguntas rápidas. No final você vê a nota do seu restaurante de 0 a 100 e um plano de ação para o seu ponto mais fraco.</p>
+      <button class="btn dg-btn" id="dg-comecar" type="button">Começar o diagnóstico</button>
+      <div class="dg-cartao dg-exemplo">
+        <p class="dg-exemplo-rotulo">Exemplo do resultado</p>
+        <div class="dg-geral"><span>Nota geral</span><strong>42</strong><small>de 100</small></div>
+        <div class="dg-radar" id="dg-exemplo-radar"></div>
+        <div id="dg-exemplo-barras"></div>
+      </div>
     </section>
 
     <section id="dg-quiz" hidden>
@@ -68,7 +73,7 @@
       <div class="dg-cartao">
         <p class="eyebrow">Pronto</p>
         <h2 class="dg-pergunta">Para quem é o resultado?</h2>
-        <p>Deixe seu nome e WhatsApp para ver a nota do seu restaurante. Eu recebo o seu resultado também e posso te mostrar por onde começar.</p>
+        <p>Deixe seu nome e WhatsApp para ver a nota e o plano de ação.</p>
         <form id="dg-form" novalidate>
           <div class="dg-campos">
             <label>Seu nome<input name="nome" type="text" autocomplete="name" required></label>
@@ -85,8 +90,8 @@
 
     <section id="dg-resultado" hidden>
       <p class="eyebrow">Seu resultado</p>
-      <h1 class="h1-page">Seu restaurante hoje, de 0 a 100</h1>
-      <div class="dg-resultado-grade mt-md">
+      <div class="dg-cartao">
+        <div class="dg-geral"><span>Nota geral</span><strong id="dg-geral"></strong><small>de 100</small></div>
         <div class="dg-radar" id="dg-radar"></div>
         <div id="dg-barras"></div>
       </div>
@@ -95,10 +100,12 @@
         <h2 id="dg-fraco-nome"></h2>
         <p class="mt-sm" id="dg-fraco-texto"></p>
       </div>
-      <p class="mt-md">Esse diagnóstico é a versão rápida do Mapeia, a primeira etapa do Método M.E.G.A. Se quiser, eu te mostro o que fazer primeiro no seu caso.</p>
+      <h2 class="dg-subtitulo">Seu plano de ação</h2>
+      <ol class="dg-plano" id="dg-plano"></ol>
+      <p>É exatamente isso que eu implanto nos restaurantes que acompanho, com o Método M.E.G.A. Se quiser, eu te mostro por onde começar no seu caso.</p>
       <div class="dg-acoes">
         <a class="btn" id="dg-whatsapp" href="#" target="_blank" rel="noopener">Quero conversar sobre o meu resultado</a>
-        <a class="btn btn-outline" href="/consultoria/">Conhecer a consultoria</a>
+        <a class="btn btn-outline" href="/consultoria/?de=diagnostico">Conhecer a consultoria</a>
       </div>
     </section>
 
