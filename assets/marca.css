@@ -1,0 +1,100 @@
+/* Brand kit Zatti (Guia de marca v1.2, 10/10/2026) aplicado ao site.
+   Só cores da paleta oficial; âmbar é raro, por isso aponta. Nada em preto: escuro é o azul-noite. */
+:root{--amber-light:#F0B85E;--lz:#315A73;}
+
+/* Tipografia: display Cormorant 700, destaque em itálico âmbar, dado em DM Sans 500 âmbar. */
+h1,h2{font-weight:700;letter-spacing:-.005em;}
+h1 em,h2 em{font-style:italic;color:var(--amber-light);}
+.band-light h1 em,.band-light h2 em{color:var(--amber);}
+.fact .num,.stat-num{font-family:var(--sans);font-weight:500;letter-spacing:-.02em;}
+body.dark-theme .fact .num{color:var(--amber-light);}
+
+/* Números do topo em uma linha só no computador (o grid de duas colunas do hero só vale para .hub-hero-grid). */
+.hero .wrap:not(.hub-hero-grid){display:block;}
+@media(min-width:760px){.facts{grid-template-columns:repeat(3,1fr);}}
+
+/* Rótulo numerado, como o cabeçalho dos cards do kit: "01  O problema". */
+.eyebrow .n{display:inline-block;font-weight:700;letter-spacing:.06em;margin-right:12px;padding-right:12px;border-right:1px solid currentColor;line-height:1;}
+body.dark-theme .band:not(.band-light) .eyebrow{color:var(--amber-light);}
+
+/* Logo oficial na barra do topo e no rodapé. */
+.wordmark-logo img{height:50px;width:auto;}
+@media(max-width:520px){.wordmark-logo img{height:42px;}}
+
+/* Ícones lineares, geométricos, peso médio (nunca garfo, faca ou chef). */
+.ico{display:block;width:34px;height:34px;color:var(--amber);flex-shrink:0;}
+.ico svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+body.dark-theme .band:not(.band-light) .ico,.product-card .ico{color:var(--amber-light);}
+.feature .ico{margin-bottom:14px;}
+.product-card .ico{width:38px;height:38px;margin-bottom:22px;}
+.product-card .card-n{position:absolute;top:30px;right:30px;font-size:12px;font-weight:700;letter-spacing:.14em;color:#F5F0E866;}
+.product-card{position:relative;}
+
+/* Sistema gráfico: órbitas no topo, grade âmbar nos blocos escuros. */
+.padrao-orbitas{position:relative;}
+.padrao-orbitas::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:repeating-radial-gradient(circle at 82% 30%,transparent 0 46px,#F0B85E1f 46px 47px);
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 82% 30%,#000 10%,transparent 72%);mask-image:radial-gradient(ellipse 60% 70% at 82% 30%,#000 10%,transparent 72%);}
+.padrao-orbitas > *{position:relative;}
+.padrao-grade{position:relative;}
+.padrao-grade::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(#C9882A1c 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,#C9882A1c 1px,transparent 1px) 0 0/32px 32px;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);}
+.padrao-grade > .wrap{position:relative;}
+
+/* Faixa âmbar (tom de voz do kit). Uma por página, no máximo. */
+.band-ambar{position:relative;overflow:hidden;background:linear-gradient(160deg,#D49636,var(--amber) 55%,#A86D1E);color:var(--navy);padding:96px 0;}
+.band-ambar .wrap{position:relative;z-index:2;}
+.band-ambar .eyebrow{color:var(--navy);}
+.voz-g{font-family:var(--serif);font-weight:700;font-size:clamp(52px,9vw,112px);line-height:.92;color:var(--navy);margin:0;}
+.voz-g em{font-style:italic;color:var(--cream);}
+.voz-s{font-size:18px;line-height:1.55;color:var(--navy);max-width:46ch;margin-top:28px;}
+.voz-arco{position:absolute;z-index:1;width:min(720px,110vw);right:-16%;top:50%;transform:translateY(-50%);opacity:.9;pointer-events:none;}
+@media(max-width:700px){.voz-arco{right:-55%;opacity:.45;}}
+
+/* M.E.G.A. como na capa de proposta do kit: quatro colunas com fio âmbar no topo. */
+.mega-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 22px;list-style:none;margin:40px 0 0;padding:0;}
+@media(min-width:700px){.mega-cols{grid-template-columns:repeat(4,1fr);}}
+.mega-cols li{border-top:2px solid var(--amber);padding-top:14px;}
+.mega-cols b{display:block;font-family:var(--serif);font-weight:700;font-size:34px;line-height:1;color:var(--amber-light);}
+.mega-cols strong{display:block;color:var(--cream);font-size:15px;margin-top:8px;}
+.mega-cols span{display:block;font-size:13.5px;line-height:1.45;color:var(--cream-dim);margin-top:4px;}
+.band-light .mega-cols b{color:var(--amber);}
+.band-light .mega-cols strong{color:var(--navy);}
+.band-light .mega-cols span{color:var(--ink-soft);}
+
+/* Relatório M.E.G.A. (card 09 do kit): folha marfim inclinada sobre uma folha azul. */
+.mega-split{display:grid;grid-template-columns:1fr;gap:56px;align-items:center;}
+@media(min-width:900px){.mega-split{grid-template-columns:1.1fr .9fr;}}
+.relatorio{position:relative;display:grid;place-items:center;padding:20px 0 64px;}
+.folha{position:relative;z-index:2;width:min(330px,74vw);aspect-ratio:210/297;background:var(--cream);box-shadow:0 40px 70px -30px #06121bcc;padding:9% 9% 8%;display:flex;flex-direction:column;transform:rotate(-4deg);color:var(--ink);}
+.folha.atras{position:absolute;z-index:1;background:linear-gradient(160deg,#1A3A52,#0D1F2D);transform:rotate(5deg) translate(12%,2%);box-shadow:0 30px 60px -30px #06121b;}
+.folha-logo{width:60%;margin-left:-5%;}
+.folha small{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-2);margin-top:14%;}
+.folha h3{font-family:var(--serif);font-weight:700;color:var(--navy);font-size:clamp(26px,7vw,36px);line-height:1;margin-top:4px;}
+.folha-kpis{margin-top:auto;display:grid;gap:8px;}
+.folha-kpis div{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--hairline);padding-top:6px;}
+.folha-kpis i{font-style:normal;font-size:11.5px;color:var(--ink);}
+.folha-kpis b{font-weight:500;color:var(--amber);font-size:20px;letter-spacing:-.01em;}
+.folha-ciclo{display:flex;gap:4px;margin-top:12px;}
+.folha-ciclo span{flex:1;text-align:center;font-size:10px;font-weight:700;padding:4px 0;border:1px solid var(--navy);color:var(--navy);}
+.folha-ciclo .on{background:var(--navy);color:var(--cream);}
+.relatorio-nota{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);opacity:.7;}
+
+/* Assinatura do fundador (assinatura de e-mail do kit). */
+.assinatura{border-left:2px solid var(--amber);padding:4px 0 4px 14px;margin-top:18px;display:flex;flex-direction:column;font-size:14px;line-height:1.5;color:var(--ink-soft);}
+.assinatura b{font-family:var(--serif);font-size:22px;color:var(--navy);}
+.assinatura .cargo{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;}
+.assinatura em{font-style:normal;color:var(--amber);}
+
+/* Rodapé com assinatura da marca. */
+footer.rodape{padding:64px 0 28px;background:linear-gradient(180deg,#0D1F2D,#0A1925);border-top:1px solid var(--hairline-dark);}
+.rodape-top{display:grid;grid-template-columns:1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--hairline-dark);}
+@media(min-width:760px){.rodape-top{grid-template-columns:1.4fr 1fr 1fr;}}
+.rodape-logo{width:150px;height:auto;}
+.rodape-cat{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);margin-top:16px;border-left:2px solid var(--amber);padding-left:10px;}
+.rodape h4{font-family:var(--sans);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-light);margin:0 0 14px;font-weight:700;}
+.rodape ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.rodape ul a{text-decoration:none;color:var(--cream-dim);transition:color .15s ease;}
+.rodape ul a:hover{color:var(--amber-light);}
+.rodape-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F5F0E880;}
