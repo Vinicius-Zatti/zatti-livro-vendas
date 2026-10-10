@@ -115,16 +115,26 @@
         <li><b>A</b><strong>Acompanha</strong><span>Monitora e ajusta com o tempo</span></li>
       </ol>
     </div>
-    <div class="relatorio reveal" aria-label="Exemplo do relatório mensal de acompanhamento">
-      <div class="folha atras" aria-hidden="true"></div>
-      <div class="folha">
-        <img class="folha-logo" src="/assets/marca/logo-zatti-consultoria-sobre-claro.svg" alt="Zatti Consultoria" width="180" height="105" loading="lazy">
-        <small>Relatório de acompanhamento</small>
-        <h3>Fechamento<br>do mês</h3>
-        <div class="folha-kpis"><div><i>CMV</i><b>31,4%</b></div><div><i>Margem</i><b>12,8%</b></div><div><i>Ponto de equilíbrio</i><b>dia 19</b></div></div>
-        <div class="folha-ciclo"><span class="on">M</span><span class="on">E</span><span class="on">G</span><span>A</span></div>
+    <div class="painel reveal" aria-label="Exemplo do relatório mensal de acompanhamento">
+      <div class="painel-top">
+        <img src="/assets/marca/logo-zatti-consultoria-sobre-escuro.svg" alt="Zatti Consultoria" width="96" height="56" loading="lazy">
+        <span class="painel-tag">Fechamento do mês</span>
       </div>
-      <p class="relatorio-nota">Números ilustrativos</p>
+      <div class="painel-kpis">
+        <div><i>CMV</i><b>31,4%</b></div>
+        <div><i>Margem</i><b>12,8%</b></div>
+        <div><i>Ponto de equilíbrio</i><b>dia 19</b></div>
+      </div>
+      <div class="painel-graf">
+        <i>Margem nos últimos 6 meses</i>
+        <svg viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="pg-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0B85E" stop-opacity=".28"/><stop offset="1" stop-color="#F0B85E" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0 78 L60 70 L120 72 L180 52 L240 38 L300 22 L300 90 L0 90Z" fill="url(#pg-area)"/>
+          <path d="M0 78 L60 70 L120 72 L180 52 L240 38 L300 22" fill="none" stroke="#F0B85E" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+      <ol class="painel-ciclo"><li class="on">Mapeia</li><li class="on">Estrutura</li><li class="on">Garante</li><li class="agora">Acompanha</li></ol>
+      <p class="painel-nota">Números ilustrativos</p>
     </div>
   </div>
 </section>

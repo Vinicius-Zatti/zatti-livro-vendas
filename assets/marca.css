@@ -63,23 +63,30 @@ body.dark-theme .band:not(.band-light) .ico,.product-card .ico{color:var(--amber
 .band-light .mega-cols strong{color:var(--navy);}
 .band-light .mega-cols span{color:var(--ink-soft);}
 
-/* Relatório M.E.G.A. (card 09 do kit): folha marfim inclinada sobre uma folha azul. */
+/* Bloco do método: texto à esquerda, painel do relatório à direita. */
 .mega-split{display:grid;grid-template-columns:1fr;gap:56px;align-items:center;}
 @media(min-width:900px){.mega-split{grid-template-columns:1.1fr .9fr;}}
-.relatorio{position:relative;display:grid;place-items:center;padding:20px 0 64px;}
-.folha{position:relative;z-index:2;width:min(330px,74vw);aspect-ratio:210/297;background:var(--cream);box-shadow:0 40px 70px -30px #06121bcc;padding:9% 9% 8%;display:flex;flex-direction:column;transform:rotate(-4deg);color:var(--ink);}
-.folha.atras{position:absolute;z-index:1;background:linear-gradient(160deg,#1A3A52,#0D1F2D);transform:rotate(5deg) translate(12%,2%);box-shadow:0 30px 60px -30px #06121b;}
-.folha-logo{width:60%;margin-left:-5%;}
-.folha small{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-2);margin-top:14%;}
-.folha h3{font-family:var(--serif);font-weight:700;color:var(--navy);font-size:clamp(26px,7vw,36px);line-height:1;margin-top:4px;}
-.folha-kpis{margin-top:auto;display:grid;gap:8px;}
-.folha-kpis div{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--hairline);padding-top:6px;}
-.folha-kpis i{font-style:normal;font-size:11.5px;color:var(--ink);}
-.folha-kpis b{font-weight:500;color:var(--amber);font-size:20px;letter-spacing:-.01em;}
-.folha-ciclo{display:flex;gap:4px;margin-top:12px;}
-.folha-ciclo span{flex:1;text-align:center;font-size:10px;font-weight:700;padding:4px 0;border:1px solid var(--navy);color:var(--navy);}
-.folha-ciclo .on{background:var(--navy);color:var(--cream);}
-.relatorio-nota{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);opacity:.7;}
+/* Painel do relatório M.E.G.A.: vidro azul-noite com fio âmbar, reto, no espírito da identidade digital. */
+.painel{position:relative;border-radius:22px;padding:28px 28px 22px;background:linear-gradient(160deg,#1A3A52e6,#0D1F2Df2 55%,#0F2A44f2);
+  box-shadow:0 0 0 1px #F0B85E33,inset 0 1px 0 #F5F0E81a,0 30px 60px -36px #06121b,0 0 80px -40px #C9882A33;backdrop-filter:blur(6px);}
+.painel::before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(60% 50% at 85% 0%,#F0B85E22,transparent 70%);}
+.painel-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid #F5F0E81a;}
+.painel-top img{height:50px;width:auto;}
+.painel-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-light);font-weight:700;}
+.painel-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:22px 0;}
+.painel-kpis div{display:flex;flex-direction:column;justify-content:space-between;gap:10px;}
+.painel-kpis div+div{border-left:1px solid #F5F0E81a;padding-left:14px;}
+.painel i,.painel-graf i{font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);}
+.painel-kpis b{font-family:var(--sans);font-weight:500;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;color:var(--amber-light);line-height:1;}
+.painel-graf{border-radius:14px;background:#06121B80;box-shadow:inset 0 0 0 1px #F5F0E812;padding:14px 16px 0;overflow:hidden;}
+.painel-graf svg{display:block;width:100%;height:84px;margin-top:8px;}
+.painel-ciclo{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;list-style:none;margin:18px 0 0;padding:0;}
+.painel-ciclo li{font-size:11px;letter-spacing:.06em;color:var(--cream-dim);padding-top:10px;border-top:2px solid #F5F0E826;}
+.painel-ciclo .on{border-top-color:var(--amber);color:var(--cream);}
+.painel-ciclo .agora{border-top-color:var(--amber-light);color:var(--amber-light);box-shadow:0 -6px 12px -8px #F0B85E;}
+.painel-nota{margin:16px 0 0;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);opacity:.6;text-align:right;}
+@media(max-width:520px){.painel{padding:22px 18px 18px;}.painel-kpis{gap:8px;}.painel-kpis div+div{padding-left:8px;}.painel-ciclo li{font-size:10px;letter-spacing:0;}}
 
 /* Assinatura do fundador (assinatura de e-mail do kit). */
 .assinatura{border-left:2px solid var(--amber);padding:4px 0 4px 14px;margin-top:18px;display:flex;flex-direction:column;font-size:14px;line-height:1.5;color:var(--ink-soft);}
