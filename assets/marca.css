@@ -1,0 +1,121 @@
+/* Brand kit Zatti (Guia de marca v1.2, 10/10/2026) aplicado ao site.
+   Só cores da paleta oficial; âmbar é raro, por isso aponta. Nada em preto: escuro é o azul-noite. */
+:root{--amber-light:#F0B85E;--lz:#315A73;}
+
+/* Tipografia: display Cormorant 700, destaque em itálico âmbar, dado em DM Sans 500 âmbar. */
+h1,h2{font-weight:700;letter-spacing:-.005em;}
+h1 em,h2 em{font-style:italic;color:var(--amber-light);}
+.band-light h1 em,.band-light h2 em{color:var(--amber);}
+.fact .num,.stat-num{font-family:var(--sans);font-weight:500;letter-spacing:-.02em;}
+body.dark-theme .fact .num{color:var(--amber-light);}
+
+/* Números do topo em uma linha só no computador (o grid de duas colunas do hero só vale para .hub-hero-grid). */
+.hero .wrap:not(.hub-hero-grid){display:block;}
+@media(min-width:760px){.facts{grid-template-columns:repeat(3,1fr);}}
+
+/* Rótulo numerado, como o cabeçalho dos cards do kit: "01  O problema". */
+.eyebrow .n{display:inline-block;font-weight:700;letter-spacing:.06em;margin-right:12px;padding-right:12px;border-right:1px solid currentColor;line-height:1;}
+body.dark-theme .band:not(.band-light) .eyebrow{color:var(--amber-light);}
+
+/* Logo oficial na barra do topo e no rodapé. */
+.wordmark-logo img{height:50px;width:auto;}
+@media(max-width:520px){.wordmark-logo img{height:42px;}}
+
+/* Ícones lineares, geométricos, peso médio (nunca garfo, faca ou chef). */
+.ico{display:block;width:34px;height:34px;color:var(--amber);flex-shrink:0;}
+.ico svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+body.dark-theme .band:not(.band-light) .ico,.product-card .ico{color:var(--amber-light);}
+.feature .ico{margin-bottom:14px;}
+.product-card .ico{width:38px;height:38px;margin-bottom:22px;}
+.product-card .card-n{position:absolute;top:30px;right:30px;font-size:12px;font-weight:700;letter-spacing:.14em;color:#F5F0E866;}
+.product-card{position:relative;}
+
+/* Sistema gráfico: órbitas no topo, grade âmbar nos blocos escuros. */
+.padrao-orbitas{position:relative;}
+.padrao-orbitas::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:repeating-radial-gradient(circle at 82% 30%,transparent 0 46px,#F0B85E1f 46px 47px);
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 82% 30%,#000 10%,transparent 72%);mask-image:radial-gradient(ellipse 60% 70% at 82% 30%,#000 10%,transparent 72%);}
+.padrao-orbitas > *{position:relative;}
+.padrao-grade{position:relative;}
+.padrao-grade::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(#C9882A1c 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,#C9882A1c 1px,transparent 1px) 0 0/32px 32px;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);}
+.padrao-grade > .wrap{position:relative;}
+
+/* Faixa âmbar (tom de voz do kit). Uma por página, no máximo. */
+.band-ambar{position:relative;overflow:hidden;background:linear-gradient(160deg,#D49636,var(--amber) 55%,#A86D1E);color:var(--navy);padding:96px 0;}
+.band-ambar .wrap{position:relative;z-index:2;}
+.band-ambar .eyebrow{color:var(--navy);}
+.voz-g{font-family:var(--serif);font-weight:700;font-size:clamp(52px,9vw,112px);line-height:.92;color:var(--navy);margin:0;}
+.voz-g em{font-style:italic;color:var(--cream);}
+.voz-s{font-size:18px;line-height:1.55;color:var(--navy);max-width:46ch;margin-top:28px;}
+.voz-arco{position:absolute;z-index:1;width:min(720px,110vw);right:-16%;top:50%;transform:translateY(-50%);opacity:.9;pointer-events:none;}
+@media(max-width:700px){.voz-arco{right:-55%;opacity:.45;}}
+
+/* M.E.G.A. como na capa de proposta do kit: quatro colunas com fio âmbar no topo. */
+.mega-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 22px;list-style:none;margin:40px 0 0;padding:0;}
+@media(min-width:700px){.mega-cols{grid-template-columns:repeat(4,1fr);}}
+.mega-cols li{border-top:2px solid var(--amber);padding-top:14px;}
+.mega-cols b{display:block;font-family:var(--serif);font-weight:700;font-size:34px;line-height:1;color:var(--amber-light);}
+.mega-cols strong{display:block;color:var(--cream);font-size:15px;margin-top:8px;}
+.mega-cols span{display:block;font-size:13.5px;line-height:1.45;color:var(--cream-dim);margin-top:4px;}
+.band-light .mega-cols b{color:var(--amber);}
+.band-light .mega-cols strong{color:var(--navy);}
+.band-light .mega-cols span{color:var(--ink-soft);}
+
+/* Bloco do método: texto à esquerda, painel do relatório à direita. */
+.mega-split{display:grid;grid-template-columns:1fr;gap:56px;align-items:center;}
+@media(min-width:900px){.mega-split{grid-template-columns:1.1fr .9fr;}}
+/* Painel do relatório M.E.G.A.: vidro azul-noite com fio âmbar, reto, no espírito da identidade digital. */
+.painel{position:relative;border-radius:22px;padding:28px 28px 22px;background:linear-gradient(160deg,#1A3A52e6,#0D1F2Df2 55%,#0F2A44f2);
+  box-shadow:0 0 0 1px #F0B85E33,inset 0 1px 0 #F5F0E81a,0 30px 60px -36px #06121b,0 0 80px -40px #C9882A33;backdrop-filter:blur(6px);}
+.painel::before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(60% 50% at 85% 0%,#F0B85E22,transparent 70%);}
+.painel-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid #F5F0E81a;}
+.painel-top img{height:50px;width:auto;}
+.painel-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-light);font-weight:700;}
+.painel-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:22px 0;}
+.painel-kpis div{display:flex;flex-direction:column;justify-content:space-between;gap:10px;}
+.painel-kpis div+div{border-left:1px solid #F5F0E81a;padding-left:14px;}
+.painel i,.painel-graf i{font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);}
+.painel-kpis b{font-family:var(--sans);font-weight:500;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em;color:var(--amber-light);line-height:1;}
+.painel-graf{border-radius:14px;background:#06121B80;box-shadow:inset 0 0 0 1px #F5F0E812;padding:14px 16px 0;overflow:hidden;}
+.painel-graf svg{display:block;width:100%;height:84px;margin-top:8px;}
+.painel-ciclo{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;list-style:none;margin:18px 0 0;padding:0;}
+.painel-ciclo li{font-size:11px;letter-spacing:.06em;color:var(--cream-dim);padding-top:10px;border-top:2px solid #F5F0E826;}
+.painel-ciclo .on{border-top-color:var(--amber);color:var(--cream);}
+.painel-ciclo .agora{border-top-color:var(--amber-light);color:var(--amber-light);box-shadow:0 -6px 12px -8px #F0B85E;}
+.painel-nota{margin:16px 0 0;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);opacity:.6;text-align:right;}
+@media(max-width:520px){.painel{padding:22px 18px 18px;}.painel-kpis{gap:8px;}.painel-kpis div+div{padding-left:8px;}.painel-ciclo li{font-size:10px;letter-spacing:0;}}
+
+/* Assinatura do fundador (assinatura de e-mail do kit). */
+.assinatura{border-left:2px solid var(--amber);padding:4px 0 4px 14px;margin-top:18px;display:flex;flex-direction:column;font-size:14px;line-height:1.5;color:var(--ink-soft);}
+.assinatura b{font-family:var(--serif);font-size:22px;color:var(--navy);}
+.assinatura .cargo{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;}
+.assinatura em{font-style:normal;color:var(--amber);}
+
+/* Rodapé com assinatura da marca. */
+footer.rodape{padding:64px 0 28px;background:linear-gradient(180deg,#0D1F2D,#0A1925);border-top:1px solid var(--hairline-dark);}
+.rodape-top{display:grid;grid-template-columns:1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--hairline-dark);}
+@media(min-width:760px){.rodape-top{grid-template-columns:1.4fr 1fr 1fr;}}
+.rodape-logo{width:150px;height:auto;}
+.rodape-cat{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);margin-top:16px;border-left:2px solid var(--amber);padding-left:10px;}
+.rodape h4{font-family:var(--sans);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-light);margin:0 0 14px;font-weight:700;}
+.rodape ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+.rodape ul a{text-decoration:none;color:var(--cream-dim);transition:color .15s ease;}
+.rodape ul a:hover{color:var(--amber-light);}
+.rodape-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F5F0E880;}
+
+/* Fechamento das páginas de venda com o fundador: foto redonda de 96px com fio âmbar, como no site publicado. */
+.closing.fecho{text-align:left;}
+.closing.fecho .wrap{display:block;max-width:760px !important;margin-left:auto !important;margin-right:auto;}
+.fecho-texto h2{max-width:16ch;margin:0;line-height:1.08;}
+.fecho-texto > p:not(.eyebrow){color:var(--cream-dim);font-size:18px;line-height:1.55;max-width:50ch;margin-top:20px;}
+.fecho-logo{width:150px;height:auto;margin-bottom:18px;display:block;}
+.fecho-assina{display:flex;align-items:center;gap:18px;margin-top:28px;}
+.fecho-assina img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--amber);flex-shrink:0;}
+.fecho .assinatura{color:var(--cream-dim);margin-top:0;}
+.fecho .assinatura b{color:var(--cream);}
+.fecho .assinatura .cargo{color:var(--amber-light);}
+.fecho .hero-actions{justify-content:flex-start;margin-top:28px;}
+@media(max-width:520px){.fecho-assina img{width:72px;height:72px;}}
