@@ -183,3 +183,11 @@ body.dark-theme .band-light .product-card h3{color:var(--cream);}
 .founder-row p{margin:0;font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--cream);}
 .founder-prova{font-size:14px;font-weight:700;color:var(--amber) !important;margin-top:8px;}
 @media(max-width:600px){.founder-row{flex-direction:column;align-items:flex-start;}}
+/* Aceite dos termos no formulário de compra do app (15/10/2026). */
+.lead-modal .aceite{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.45;color:var(--ink-soft);}
+.lead-modal .aceite input{margin-top:3px;width:18px;height:18px;flex:0 0 18px;}
+.lead-modal .aceite a{color:inherit;text-decoration:underline;}
+/* Página de renovação (15/10/2026): o mesmo aceite, sobre o fundo escuro. */
+.hero .aceite{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--cream);}
+.hero .aceite input{margin-top:3px;width:18px;height:18px;flex:0 0 18px;}
+.hero .aceite a{color:inherit;text-decoration:underline;}

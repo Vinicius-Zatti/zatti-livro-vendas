@@ -6,7 +6,19 @@
 var VINI_URL = "https://vini-production-33a6.up.railway.app";
 var VINI_LEADS_URL = VINI_URL + "/site/lead";
 var VINI_CHECKOUT_URL = VINI_URL + "/site/checkout";
-var CAMPOS_LEAD = ["nome", "whatsapp", "faturamento_atual", "faturamento_desejado", "produto", "negocio", "faturamento", "cmv", "dre", "dependencia", "dificuldade"];
+// email e termos: compra do app com cadastro automático (15/10/2026). O e-mail vira o login no app.
+var CAMPOS_LEAD = ["nome", "whatsapp", "faturamento_atual", "faturamento_desejado", "produto", "negocio", "faturamento", "cmv", "dre", "dependencia", "dificuldade", "email", "termos"];
+
+// Formulário com confirmação de e-mail: os dois campos precisam bater antes de seguir.
+function emailConfere(form) {
+  var email = form.querySelector("[name=email]");
+  var confirmacao = form.querySelector("[name=email_confirmacao]");
+  if (!email || !confirmacao) return true;
+  var igual = email.value.trim().toLowerCase() === confirmacao.value.trim().toLowerCase();
+  confirmacao.setCustomValidity(igual ? "" : "Os dois e-mails precisam ser iguais.");
+  if (!igual) confirmacao.reportValidity();
+  return igual;
+}
 
 function origemDaVisita() {
   try { return new URLSearchParams(window.location.search).get("origem") || "site"; } catch (e) { return "site"; }
@@ -60,14 +72,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelectorAll(".checkout-form").forEach(function (form) {
+    var confirmacao = form.querySelector("[name=email_confirmacao]");
+    if (confirmacao) confirmacao.addEventListener("input", function () { confirmacao.setCustomValidity(""); });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!emailConfere(form)) return;
       var btn = form.querySelector("button[type=submit]");
       var originalText = btn.textContent;
       btn.disabled = true;
       btn.textContent = "Enviando...";
 
       var data = new FormData(form);
+      data.delete("email_confirmacao");
       data.append("origem", window.location.search || "direto");
       var controller = "AbortController" in window ? new AbortController() : null;
       var timer = setTimeout(function () { if (controller) controller.abort(); }, 2500);

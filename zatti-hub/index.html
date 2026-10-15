@@ -198,11 +198,15 @@
   <form class="checkout-form" data-produto="zatti-hub" data-redirect="https://mpago.li/1NVrhLM">
     <input type="hidden" name="produto" value="Zatti Hub - plano anual">
     <div class="field"><label>Nome</label><input type="text" name="nome" autocomplete="name" required></div>
+    <div class="field"><label>Nome do restaurante</label><input type="text" name="negocio" autocomplete="organization" maxlength="80" required></div>
     <div class="field"><label>WhatsApp com DDD</label><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" required></div>
+    <div class="field"><label>E-mail (vai ser o seu login no app)</label><input type="email" name="email" autocomplete="email" maxlength="254" required></div>
+    <div class="field"><label>Confirme o e-mail</label><input type="email" name="email_confirmacao" autocomplete="off" maxlength="254" required></div>
     <div class="field"><label>Faturamento que deseja alcançar por mês</label><select name="faturamento_desejado" required><option value="" disabled selected>Escolha uma faixa</option><option>Até R$50 mil</option><option>R$50 a 100 mil</option><option>R$100 a 200 mil</option><option>R$200 a 500 mil</option></select></div>
     <div class="field"><label>Faturamento médio hoje por mês</label><select name="faturamento_atual" required><option value="" disabled selected>Escolha uma faixa</option><option>Até R$50 mil</option><option>R$50 a 100 mil</option><option>R$100 a 200 mil</option><option>R$200 a 500 mil</option></select></div>
+    <label class="aceite"><input type="checkbox" name="termos" value="v1-2026-10-15" required> <span>Li e aceito os <a href="/zatti-hub/termos/" target="_blank" rel="noopener">Termos de uso</a> e a <a href="/privacidade/" target="_blank" rel="noopener">Política de privacidade</a>.</span></label>
     <button class="btn btn-block" type="submit">Continuar para o pagamento</button>
-    <p class="form-note">Pagamento seguro pelo Mercado Pago, em até 12x no cartão.</p>
+    <p class="form-note">Pagamento seguro pelo Mercado Pago, em até 12x no cartão. Seu acesso chega no WhatsApp logo depois do pagamento.</p>
   </form>
 </dialog>
 

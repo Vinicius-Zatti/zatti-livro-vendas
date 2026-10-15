@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Renovar o Zatti Hub</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Renovação da assinatura anual do Zatti Hub.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/zatti-hub.css">
+<link rel="stylesheet" href="/assets/marca.css">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+</head>
+<body class="dark-theme pagina-hub">
+
+<nav>
+  <div class="nav-row">
+    <a class="wordmark wordmark-hub" href="/" aria-label="Zatti Hub, início"><img src="/assets/marca/logo-zatti-hub-sobre-escuro.svg" alt="Zatti Hub" width="86" height="52"></a>
+  </div>
+</nav>
+
+<header class="hero band">
+  <div class="wrap container-narrow">
+    <p class="eyebrow">Renovação do Zatti Hub</p>
+    <h1 class="h1-page" id="renovar-titulo">Renove o seu Zatti Hub por mais 12 meses</h1>
+    <!-- Preenchido pelo Vini a partir do link: restaurante, vencimento, preço e oferta. -->
+    <div id="renovar-conta" hidden>
+      <p class="lede" id="renovar-resumo"></p>
+      <p class="lede" id="renovar-destaque" hidden></p>
+      <p class="lede"><strong id="renovar-preco"></strong></p>
+      <p class="mt-md">Nada muda no seu app: os dados, a equipe e os módulos continuam como estão. Pagamento pelo Mercado Pago.</p>
+      <label class="aceite mt-md"><input type="checkbox" id="renovar-termos" required> <span>Li e aceito os <a href="/zatti-hub/termos/" target="_blank" rel="noopener">Termos de uso</a> e a <a href="/privacidade/" target="_blank" rel="noopener">Política de privacidade</a>.</span></label>
+      <p class="mt-md"><button class="btn" type="button" id="renovar-botao">Renovar agora</button></p>
+      <p class="mt-md" id="renovar-erro" role="alert" hidden></p>
+    </div>
+    <p class="lede" id="renovar-carregando">Conferindo o seu link de renovação...</p>
+    <p class="lede" id="renovar-invalido" hidden>Não encontrei a assinatura deste link. Fale comigo no <a href="https://wa.me/5511963898411?text=Ol%C3%A1%21%20Quero%20renovar%20o%20Zatti%20Hub." target="_blank" rel="noopener">WhatsApp</a> que eu te ajudo a renovar.</p>
+  </div>
+</header>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-base"><span>Método M.E.G.A. · Mapeia. Estrutura. Garante. Acompanha.</span><span><a href="/privacidade/">Privacidade</a> · <a href="/zatti-hub/termos/">Termos de uso</a></span></div>
+  </div>
+</footer>
+
+<script src="/assets/zatti-hub-renovar.js"></script>
+</body>
+</html>
