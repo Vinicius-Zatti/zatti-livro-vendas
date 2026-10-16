@@ -191,3 +191,25 @@ body.dark-theme .band-light .product-card h3{color:var(--cream);}
 .hero .aceite{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--cream);}
 .hero .aceite input{margin-top:3px;width:18px;height:18px;flex:0 0 18px;}
 .hero .aceite a{color:inherit;text-decoration:underline;}
+
+/* Renovação (16/10/2026): conteúdo em cartão, logo legível. */
+.pagina-renovar .wordmark-hub img{height:84px;}
+@media(max-width:520px){.pagina-renovar .wordmark-hub img{height:66px;}}
+.pagina-renovar .hero{padding-top:56px;padding-bottom:72px;}
+body.pagina-hub.pagina-renovar .band:not(.hero-hub) .wrap{max-width:var(--maxw);margin-left:auto;margin-right:auto;}
+.renovar-cartao{max-width:560px;margin:0 auto;background:#0D1F2Dcc;border:1px solid #C9A2274d;border-radius:16px;padding:36px 32px;}
+@media(max-width:520px){.renovar-cartao{padding:28px 20px;}}
+.renovar-cartao .h1-page{margin:8px 0 24px;font-size:clamp(30px,4vw,40px);}
+.renovar-dados{margin:0 0 20px;border-top:1px solid #F5F0E81f;}
+.renovar-dados div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #F5F0E81f;}
+.renovar-dados dt{color:var(--cream-dim);font-size:14px;}
+.renovar-dados dd{margin:0;color:var(--cream);font-weight:500;text-align:right;}
+.renovar-destaque{color:var(--cream);margin:0 0 16px;}
+.renovar-preco{margin:0 0 16px;display:flex;flex-direction:column;gap:2px;}
+.renovar-preco strong{font-size:28px;color:var(--cream);}
+.renovar-preco span{color:var(--cream-dim);font-size:15px;}
+.renovar-nota{color:var(--cream-dim);font-size:15px;line-height:1.55;margin:0 0 20px;}
+.renovar-nota a{color:inherit;text-decoration:underline;}
+.renovar-cartao .aceite{margin-bottom:20px;}
+.renovar-botao{width:100%;justify-content:center;}
+.renovar-erro{color:#F2B8A0;font-size:14px;margin:14px 0 0;}

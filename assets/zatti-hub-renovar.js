@@ -10,7 +10,7 @@
     el("renovar-carregando").hidden = true;
     el("renovar-invalido").hidden = false;
   }
-  function reais(v) { return "R$" + Number(v).toFixed(2).replace(".", ","); }
+  function reais(v) { return "R$ " + Number(v).toFixed(2).replace(".", ","); }
   function dataBR(iso) { return iso ? iso.slice(8, 10) + "/" + iso.slice(5, 7) + "/" + iso.slice(0, 4) : ""; }
 
   if (!/^[A-Za-z0-9_-]{24,64}$/.test(token)) return invalido();
@@ -25,14 +25,19 @@
       if (!conta) return invalido();
       var hoje = new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
       var vencida = conta.vence_em && conta.vence_em < hoje;
-      el("renovar-resumo").textContent = conta.vence_em
-        ? "Assinatura do " + conta.restaurante + (vencida ? ": venceu em " : ": vence em ") + dataBR(conta.vence_em) + "."
-        : "Assinatura do " + conta.restaurante + ".";
+      el("renovar-restaurante").textContent = conta.restaurante;
+      if (conta.vence_em) {
+        el("renovar-vence-rotulo").textContent = vencida ? "Venceu em" : "Vence em";
+        el("renovar-vence").textContent = dataBR(conta.vence_em);
+      } else {
+        el("renovar-vence").parentNode.hidden = true;
+      }
       if (conta.destaque) {
         el("renovar-destaque").textContent = conta.destaque;
         el("renovar-destaque").hidden = false;
       }
-      el("renovar-preco").textContent = conta.parcelas + "x de " + reais(conta.preco / conta.parcelas) + " (" + reais(conta.preco) + " por 12 meses)";
+      el("renovar-parcela").textContent = conta.parcelas + "x de " + reais(conta.preco / conta.parcelas);
+      el("renovar-total").textContent = reais(conta.preco) + " por 12 meses";
       el("renovar-carregando").hidden = true;
       el("renovar-conta").hidden = false;
     })

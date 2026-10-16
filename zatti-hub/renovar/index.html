@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/assets/marca.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 </head>
-<body class="dark-theme pagina-hub">
+<body class="dark-theme pagina-hub pagina-renovar">
 
 <nav>
   <div class="nav-row">
@@ -23,21 +23,26 @@
 </nav>
 
 <header class="hero band">
-  <div class="wrap container-narrow">
-    <p class="eyebrow">Renovação do Zatti Hub</p>
-    <h1 class="h1-page" id="renovar-titulo">Renove o seu Zatti Hub por mais 12 meses</h1>
-    <!-- Preenchido pelo Vini a partir do link: restaurante, vencimento, preço e oferta. -->
-    <div id="renovar-conta" hidden>
-      <p class="lede" id="renovar-resumo"></p>
-      <p class="lede" id="renovar-destaque" hidden></p>
-      <p class="lede"><strong id="renovar-preco"></strong></p>
-      <p class="mt-md">Nada muda no seu app: os dados, a equipe e os módulos continuam como estão. Pagamento pelo Mercado Pago.</p>
-      <label class="aceite mt-md"><input type="checkbox" id="renovar-termos" required> <span>Li e aceito os <a href="/zatti-hub/termos/" target="_blank" rel="noopener">Termos de uso</a> e a <a href="/privacidade/" target="_blank" rel="noopener">Política de privacidade</a>.</span></label>
-      <p class="mt-md"><button class="btn" type="button" id="renovar-botao">Renovar agora</button></p>
-      <p class="mt-md" id="renovar-erro" role="alert" hidden></p>
+  <div class="wrap">
+    <div class="renovar-cartao">
+      <p class="eyebrow">Renovação do Zatti Hub</p>
+      <h1 class="h1-page" id="renovar-titulo">Renove por mais 12 meses</h1>
+      <!-- Preenchido pelo Vini a partir do link: restaurante, vencimento, preço e oferta. -->
+      <div id="renovar-conta" hidden>
+        <dl class="renovar-dados">
+          <div><dt>Restaurante</dt><dd id="renovar-restaurante"></dd></div>
+          <div><dt id="renovar-vence-rotulo">Vencimento</dt><dd id="renovar-vence"></dd></div>
+        </dl>
+        <p class="renovar-destaque" id="renovar-destaque" hidden></p>
+        <p class="renovar-preco"><strong id="renovar-parcela"></strong><span id="renovar-total"></span></p>
+        <p class="renovar-nota">Nada muda no seu app: os dados, a equipe e os módulos continuam como estão. Pagamento pelo Mercado Pago.</p>
+        <label class="aceite"><input type="checkbox" id="renovar-termos" required> <span>Li e aceito os <a href="/zatti-hub/termos/" target="_blank" rel="noopener">Termos de uso</a> e a <a href="/privacidade/" target="_blank" rel="noopener">Política de privacidade</a>.</span></label>
+        <button class="btn renovar-botao" type="button" id="renovar-botao">Renovar agora</button>
+        <p class="renovar-erro" id="renovar-erro" role="alert" hidden></p>
+      </div>
+      <p class="renovar-nota" id="renovar-carregando">Conferindo o seu link de renovação...</p>
+      <p class="renovar-nota" id="renovar-invalido" hidden>Não encontrei a assinatura deste link. Fale comigo no <a href="https://wa.me/5511963898411?text=Ol%C3%A1%21%20Quero%20renovar%20o%20Zatti%20Hub." target="_blank" rel="noopener">WhatsApp</a> que eu te ajudo a renovar.</p>
     </div>
-    <p class="lede" id="renovar-carregando">Conferindo o seu link de renovação...</p>
-    <p class="lede" id="renovar-invalido" hidden>Não encontrei a assinatura deste link. Fale comigo no <a href="https://wa.me/5511963898411?text=Ol%C3%A1%21%20Quero%20renovar%20o%20Zatti%20Hub." target="_blank" rel="noopener">WhatsApp</a> que eu te ajudo a renovar.</p>
   </div>
 </header>
 
