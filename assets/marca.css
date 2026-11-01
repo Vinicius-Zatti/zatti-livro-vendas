@@ -18,8 +18,11 @@ body.dark-theme .fact .num{color:var(--amber-light);}
 body.dark-theme .band:not(.band-light) .eyebrow{color:var(--amber-light);}
 
 /* Logo oficial na barra do topo e no rodapé. */
-.wordmark-logo img{height:50px;width:auto;}
-@media(max-width:520px){.wordmark-logo img{height:42px;}}
+.wordmark-logo img{height:46px;width:auto;}
+.wordmark img.logo-nome{height:63px;width:auto;margin:-8.5px 0;}
+@media(max-width:520px){.wordmark-logo img{height:40px;}.wordmark img.logo-nome{height:55px;margin:-7.5px 0;}}
+.pagina-renovar .wordmark img.logo-nome{height:84px;margin:0;}
+@media(max-width:520px){.pagina-renovar .wordmark img.logo-nome{height:66px;}}
 
 /* Ícones lineares, geométricos, peso médio (nunca garfo, faca ou chef). */
 .ico{display:block;width:34px;height:34px;color:var(--amber);flex-shrink:0;}
