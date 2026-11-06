@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Restaurante no Controle | Livro de Vinícius Zanetti</title>
-<meta name="description" content="Restaurante no Controle: o Método M.E.G.A. de gestão para restaurantes. Livro digital por R$37, entregue no seu WhatsApp.">
+<meta name="description" content="Restaurante no Controle: o Método M.E.G.A. de gestão para restaurantes. Livro digital grátis, entregue no seu WhatsApp na hora.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -40,9 +40,9 @@
       <h1 class="h1-page">Seu restaurante não pode depender <em>só de você.</em></h1>
       <p class="lede hero-sub">Restaurante no Controle é o Método M.E.G.A. de gestão para restaurantes, no livro que eu escrevi a partir do que aplico com donos de restaurante desde 2022. Mesmo que você nunca tenha aberto uma DRE na vida.</p>
       <div class="hero-actions">
-        <a class="btn" href="#oferta">Quero o livro por R$37</a>
+        <a class="btn" href="#oferta">Quero o livro grátis</a>
       </div>
-      <p class="microcopy">Livro digital em PDF, entregue no seu WhatsApp no mesmo dia.</p>
+      <p class="microcopy">Livro digital em PDF, grátis, entregue no seu WhatsApp na hora.</p>
     </div>
     <div class="book3d-wrap" aria-hidden="true">
       <div class="book3d">
@@ -125,16 +125,24 @@
   <div class="wrap reveal">
     <div class="offer-box">
       <p class="eyebrow">Restaurante no Controle</p>
-      <div class="offer-price"><span class="x">R$</span>37</div>
-      <p class="offer-sub">Pagamento único, sem mensalidade.</p>
+      <div class="offer-price">Grátis</div>
+      <p class="offer-sub">Preencha e o livro chega no seu WhatsApp na hora.</p>
       <ul class="offer-list">
         <li>Livro digital completo em PDF</li>
         <li>O mesmo método da consultoria da Zatti</li>
-        <li>Entregue no seu WhatsApp no mesmo dia</li>
-        <li>Pix ou cartão</li>
+        <li>Entregue no seu WhatsApp assim que você preencher</li>
       </ul>
-      <button class="btn btn-block" type="button" data-open="modal-app">Quero o livro</button>
-      <p class="microcopy">7 dias de garantia: se não valer o investimento, devolvemos o valor.</p>
+      <form class="livro-form" id="livro-form" novalidate>
+        <input type="hidden" name="produto" value="Livro Restaurante no Controle (grátis)">
+        <div class="field"><label for="lf-nome">Seu nome</label><input id="lf-nome" type="text" name="nome" autocomplete="name" required></div>
+        <div class="field"><label for="lf-whatsapp">WhatsApp com DDD</label><input id="lf-whatsapp" type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required></div>
+        <div class="field"><label for="lf-fat">Quanto o restaurante fatura por mês, em média?</label><select id="lf-fat" name="faturamento_atual" required><option value="" disabled selected>Escolha uma faixa</option><option>Até 50 mil</option><option>50 a 100 mil</option><option>100 a 150 mil</option><option>150 a 300 mil</option><option>Acima de 300 mil</option></select></div>
+        <div class="field"><label for="lf-dor">Qual é a sua maior dor hoje?</label><select id="lf-dor" name="dificuldade" required><option value="" disabled selected>Escolha a que mais pesa</option><option>Não sei se sobra lucro</option><option>CMV alto ou desperdício</option><option>Compras e estoque</option><option>Equipe e processos</option><option>O restaurante depende de mim</option><option>Outra</option></select></div>
+        <label class="livro-aceite"><input type="checkbox" name="aceite" value="sim" required><span>Aceito receber o livro e mensagens do Vinícius pelo WhatsApp.</span></label>
+        <p class="form-note form-error" id="lf-erro" hidden></p>
+        <button class="btn btn-block" type="submit">Quero o livro grátis</button>
+        <p class="form-note">Seus dados ficam comigo, conforme a <a class="link-amber" href="/privacidade/">Política de Privacidade</a>.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -154,9 +162,9 @@
     <h2 class="h2-section reveal">Antes de decidir</h2>
     <div class="faq">
       <details><summary>Para quem é esse livro?</summary><p>Para dono de restaurante, bar ou negócio de food service que fatura, mas não tem clareza sobre lucro, processos ou estratégia. Se você já tem DRE gerencial rodando e equipe treinada, ele é a base que você já tem.</p></details>
-      <details><summary>Como eu recebo o livro?</summary><p>Em PDF, no seu WhatsApp, no mesmo dia da confirmação do pagamento.</p></details>
+      <details><summary>Como eu recebo o livro?</summary><p>Em PDF, no seu WhatsApp, logo depois que você preenche o formulário.</p></details>
       <details><summary>Preciso entender de gestão ou de finanças?</summary><p>Não. O livro foi escrito para dono de restaurante sem formação em gestão, direto e sem jargão desnecessário.</p></details>
-      <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. É só pedir no WhatsApp e devolvemos o valor, sem pergunta.</p></details>
+      <details><summary>É grátis mesmo?</summary><p>É. Você preenche o formulário e o livro chega no seu WhatsApp. Depois eu posso te chamar para entender o seu restaurante; se não quiser conversa, é só me dizer.</p></details>
     </div>
   </div>
 </section>
@@ -168,25 +176,11 @@
       <h2>Seu restaurante não pode depender <em>só de você.</em></h2>
       <p>Escrevi este livro com o mesmo método que aplico nos restaurantes que acompanho. É o primeiro passo para a casa andar sem você apagar incêndio o dia inteiro.</p>
       <div class="fecho-assina"><img src="/assets/vinicius.jpeg" alt="Vinícius Zanetti" width="96" height="96" loading="lazy"><div class="assinatura"><b>Vinícius Zanetti</b><span class="cargo">Autor e fundador</span><span>Zatti Consultoria · Gestão Implementada para Restaurantes</span></div></div>
-      <div class="hero-actions"><a class="btn" href="#oferta">Quero o livro por R$37</a></div>
+      <div class="hero-actions"><a class="btn" href="#oferta">Quero o livro grátis</a></div>
     </div>
   </div>
 </section>
 
-<dialog class="lead-modal" id="modal-app" aria-labelledby="modal-app-titulo">
-  <button class="modal-close" type="button" aria-label="Fechar">×</button>
-  <p class="eyebrow">Falta pouco</p>
-  <h3 id="modal-app-titulo">Preencha para ir ao pagamento</h3>
-  <form class="checkout-form" data-produto="livro" data-redirect="https://mpago.li/295XKqF">
-    <input type="hidden" name="produto" value="Livro Restaurante no Controle">
-    <div class="field"><label>Nome</label><input type="text" name="nome" autocomplete="name" required></div>
-    <div class="field"><label>WhatsApp com DDD</label><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" required></div>
-    <div class="field"><label>Faturamento que deseja alcançar por mês</label><select name="faturamento_desejado" required><option value="" disabled selected>Escolha uma faixa</option><option>Até R$50 mil</option><option>R$50 a 100 mil</option><option>R$100 a 200 mil</option><option>R$200 a 500 mil</option></select></div>
-    <div class="field"><label>Faturamento médio hoje por mês</label><select name="faturamento_atual" required><option value="" disabled selected>Escolha uma faixa</option><option>Até R$50 mil</option><option>R$50 a 100 mil</option><option>R$100 a 200 mil</option><option>R$200 a 500 mil</option></select></div>
-    <button class="btn btn-block" type="submit">Continuar para o pagamento</button>
-    <p class="form-note">Pagamento seguro pelo Mercado Pago. O livro chega no seu WhatsApp.</p>
-  </form>
-</dialog>
 
 
 <a class="wpp-float" href="https://wa.me/5511963898411?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20vendas%20do%20livro%20Restaurante%20no%20Controle%20e%20quero%20saber%20mais." target="_blank" rel="noopener" aria-label="Fale com o Vinícius no WhatsApp" title="Fale com o Vinícius">
@@ -207,5 +201,6 @@
 <script src="/assets/main.js"></script>
 <script src="/assets/zatti-hub.js"></script>
 <script src="/assets/livro.js"></script>
+<script src="/assets/livro-gratis.js"></script>
 </body>
 </html>
