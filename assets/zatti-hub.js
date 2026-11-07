@@ -7,7 +7,7 @@ var VINI_URL = "https://vini-production-33a6.up.railway.app";
 var VINI_LEADS_URL = VINI_URL + "/site/lead";
 var VINI_CHECKOUT_URL = VINI_URL + "/site/checkout";
 // email e termos: compra do app com cadastro automático (15/10/2026). O e-mail vira o login no app.
-var CAMPOS_LEAD = ["nome", "whatsapp", "faturamento_atual", "faturamento_desejado", "produto", "negocio", "faturamento", "cmv", "dre", "dependencia", "dificuldade", "email", "termos"];
+var CAMPOS_LEAD = ["nome", "whatsapp", "faturamento_atual", "faturamento_desejado", "produto", "negocio", "faturamento", "cmv", "dre", "dependencia", "dificuldade", "email", "termos", "aceite"];
 
 // Formulário com confirmação de e-mail: os dois campos precisam bater antes de seguir.
 function emailConfere(form) {

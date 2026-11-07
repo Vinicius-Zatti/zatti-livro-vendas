@@ -213,3 +213,14 @@ body.pagina-hub.pagina-renovar .band:not(.hero-hub) .wrap{max-width:var(--maxw);
 .renovar-cartao .aceite{margin-bottom:20px;}
 .renovar-botao{width:100%;justify-content:center;}
 .renovar-erro{color:#F2B8A0;font-size:14px;margin:14px 0 0;}
+
+/* Livro grátis (06/11/2026): formulário dentro da oferta, mesmo padrão do formulário em modal. */
+.livro-form{display:grid;gap:12px;margin-top:8px;text-align:left;}
+.livro-form .field{display:grid;gap:6px;}
+.livro-form label{font-size:13px;font-weight:600;color:var(--ink-soft);}
+.livro-form input,.livro-form select{font-family:var(--sans);font-size:16px;padding:12px 14px;border:1px solid var(--hairline);border-radius:var(--radius-sm);width:100%;background:#fff;color:var(--ink);}
+.livro-form .livro-aceite{display:flex;gap:10px;align-items:flex-start;font-weight:500;color:var(--ink);cursor:pointer;}
+.livro-form .livro-aceite input{width:20px;height:20px;padding:0;margin:1px 0 0;flex:none;accent-color:var(--navy);}
+body .band-light .livro-form .form-error{color:#B3261E;font-weight:600;margin:0;}
+.livro-form .btn{margin-top:4px;}
+.offer-price-texto{font-size:52px;}
