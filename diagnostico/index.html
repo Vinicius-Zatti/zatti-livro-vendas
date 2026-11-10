@@ -41,7 +41,7 @@
     <section id="dg-inicio">
       <p class="eyebrow">Diagnóstico gratuito · 5 minutos</p>
       <h1 class="dg-titulo">Como está o seu restaurante hoje?</h1>
-      <p class="mt-sm">16 perguntas rápidas. No final você vê a nota do seu restaurante de 0 a 100 e um plano de ação para o seu ponto mais fraco.</p>
+      <p class="mt-sm">16 perguntas rápidas. No final você vê a nota do seu restaurante de 0 a 100, um plano de ação para o seu ponto mais fraco e recebe grátis o livro Restaurante no Controle no seu WhatsApp.</p>
       <button class="btn dg-btn" id="dg-comecar" type="button">Começar o diagnóstico</button>
       <div class="dg-cartao dg-exemplo">
         <p class="dg-exemplo-rotulo">Exemplo do resultado</p>
@@ -65,15 +65,17 @@
       <div class="dg-cartao">
         <p class="eyebrow">Pronto</p>
         <h2 class="dg-pergunta">Para quem é o resultado?</h2>
-        <p>Deixe seu nome e WhatsApp para ver a nota e o plano de ação.</p>
+        <p>Preencha tudo para ver a nota e o plano de ação e receber o livro no WhatsApp.</p>
         <form id="dg-form" novalidate>
           <div class="dg-campos">
             <label>Seu nome<input name="nome" type="text" autocomplete="name" required></label>
             <label>WhatsApp com DDD<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required></label>
-            <label>Nome do restaurante (opcional)<input name="negocio" type="text"></label>
+            <label>Nome do restaurante<input name="negocio" type="text" required></label>
+            <label>@ do Instagram do restaurante<input name="instagram" type="text" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="@seurestaurante" required></label>
           </div>
+          <label class="dg-aceite"><input type="checkbox" name="aceite" value="sim" required><span>Aceito receber o livro e mensagens do Vinícius pelo WhatsApp.</span></label>
           <p class="dg-erro" id="dg-erro" hidden></p>
-          <button class="btn" type="submit">Ver meu resultado</button>
+          <button class="btn" type="submit">Ver meu resultado e receber o livro</button>
           <p class="microcopy mt-sm">Seus dados ficam comigo, conforme a <a class="link-amber" href="/privacidade/">Política de Privacidade</a>.</p>
         </form>
         <button class="dg-link" id="dg-contato-voltar" type="button">Voltar para a última pergunta</button>
@@ -81,6 +83,7 @@
     </section>
 
     <section id="dg-resultado" hidden>
+      <p class="dg-livro" id="dg-livro"></p>
       <p class="eyebrow">Seu resultado</p>
       <div class="dg-cartao">
         <div class="dg-geral"><span>Nota geral</span><strong id="dg-geral"></strong><small>de 100</small></div>

@@ -11,6 +11,7 @@
     { campo: "tipo", texto: "Que tipo de negócio você tem?", opcoes: ["Hamburgueria", "Pizzaria", "Restaurante", "Bar", "Outro"] },
     { campo: "faturamento_atual", texto: "Quanto o restaurante fatura por mês, em média?", opcoes: ["Até 50 mil", "50 a 100 mil", "100 a 150 mil", "150 a 300 mil", "Acima de 300 mil"] },
     { campo: "unidades", texto: "Quantas unidades você tem?", opcoes: ["1", "2 a 3", "4 ou mais"] },
+    { campo: "dificuldade", texto: "Qual é a sua maior dor hoje?", opcoes: ["Não sei se sobra lucro", "CMV alto ou desperdício", "Compras e estoque", "Equipe e processos", "O restaurante depende de mim", "Outra"] },
   ];
 
   var PILARES = [
@@ -50,6 +51,12 @@
     ["Quem resolve os problemas do dia a dia quando você não está?", ["Ninguém, me ligam", "Me ligam quase sempre", "Alguém resolve o simples", "Alguém resolve e depois me conta"]],
     ["Quanto da sua semana vai para apagar incêndio?", ["Quase toda", "Mais da metade", "Um pouco", "Quase nada"]],
   ];
+
+  // Aceita "@pazzo", "pazzo" e o link do perfil, como o servidor (normalizarInstagram no Vini).
+  function usuarioInstagram(valor) {
+    var u = String(valor || "").trim().replace(/^https?:\/\//i, "").replace(/^(?:www\.)?instagram\.com\//i, "").replace(/^@/, "").split(/[/?#]/)[0].toLowerCase();
+    return /^[a-z0-9._]{2,30}$/.test(u) ? u : "";
+  }
 
   function pilarDa(i) {
     for (var p = 0; p < PILARES.length; p++) if (PILARES[p].perguntas.indexOf(i) >= 0) return PILARES[p];
@@ -133,20 +140,23 @@
   // Envia ao Vini e ao Formspree; nunca segura o resultado mais de ~2,5 s.
   function enviar(contato, d) {
     var corpo = {
-      nome: contato.nome, whatsapp: contato.whatsapp, negocio: contato.negocio || undefined,
-      produto: "Diagnóstico 5 minutos", origem: origem(), pagina: window.location.pathname,
+      nome: contato.nome, whatsapp: contato.whatsapp, negocio: contato.negocio, instagram: contato.instagram,
+      produto: "Diagnóstico completo e livro grátis", origem: origem(), pagina: window.location.pathname,
       tipo: perfil.tipo, faturamento_atual: perfil.faturamento_atual, unidades: perfil.unidades,
+      dificuldade: perfil.dificuldade, aceite: "sim",
       respostas: respostas.join(""),
     };
     var vini = fetch(VINI_LEADS_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(corpo) })
-      .catch(function () { return null; });
+      .then(function (r) { return !!r && r.ok; })
+      .catch(function () { return false; });
     var fd = new FormData();
     Object.keys(corpo).forEach(function (k) { if (corpo[k]) fd.append(k, corpo[k]); });
     fd.append("notas", d.notas.map(function (n) { return n.pilar.nome + " " + n.nota; }).join(", "));
     var reserva = fetch(FORMSPREE_URL, { method: "POST", body: fd, headers: { Accept: "application/json" } })
       .catch(function () { return null; });
     var limite = new Promise(function (r) { setTimeout(r, 2500); });
-    return Promise.race([Promise.all([vini, reserva]), limite]);
+    // Sem resposta dentro do limite conta como enviado: o servidor pode só estar demorando.
+    return Promise.race([Promise.all([vini, reserva]).then(function (r) { return r[0]; }), limite.then(function () { return true; })]);
   }
 
   function radar(notas) {
@@ -208,15 +218,25 @@
       ev.preventDefault();
       var f = ev.target;
       var campo = function (n) { return f.elements.namedItem(n).value; };
-      var contato = { nome: campo("nome").trim(), whatsapp: campo("whatsapp").replace(/\D/g, ""), negocio: campo("negocio").trim() };
+      var contato = { nome: campo("nome").trim(), whatsapp: campo("whatsapp").replace(/\D/g, ""), negocio: campo("negocio").trim(), instagram: usuarioInstagram(campo("instagram")) };
       var erro = el("dg-erro");
-      if (contato.nome.length < 2) { erro.textContent = "Escreva o seu nome."; erro.hidden = false; return; }
-      if (contato.whatsapp.length < 10 || contato.whatsapp.length > 13) { erro.textContent = "Confira o WhatsApp com DDD."; erro.hidden = false; return; }
+      var falha = function (texto) { erro.textContent = texto; erro.hidden = false; };
+      if (contato.nome.length < 2) return falha("Escreva o seu nome.");
+      if (contato.whatsapp.length < 10 || contato.whatsapp.length > 13) return falha("Confira o WhatsApp com DDD.");
+      if (contato.negocio.length < 2) return falha("Escreva o nome do restaurante.");
+      if (!contato.instagram) return falha("Escreva o @ do Instagram do restaurante.");
+      if (!f.elements.namedItem("aceite").checked) return falha("Marque o aceite para o livro chegar no seu WhatsApp.");
       erro.hidden = true;
       var btn = f.querySelector("button[type=submit]");
       btn.disabled = true; btn.textContent = "Calculando...";
       var d = calcular();
-      enviar(contato, d).then(function () { renderResultado(d); mostrar("dg-resultado"); });
+      enviar(contato, d).then(function (chegou) {
+        renderResultado(d);
+        el("dg-livro").textContent = chegou
+          ? "Seu livro Restaurante no Controle já está indo para o seu WhatsApp. Chega em alguns minutos, do meu número."
+          : "Não consegui confirmar o envio do seu livro. Me chama no WhatsApp pelo botão abaixo que eu te mando.";
+        mostrar("dg-resultado");
+      });
     });
   });
 })();

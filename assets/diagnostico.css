@@ -45,3 +45,8 @@
 .dg-acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
 .dg-barra{grid-template-columns:minmax(0,1fr) 34px;row-gap:6px;}
 .dg-barra-trilho{grid-column:1 / -1;grid-row:2;}
+
+/* Aceite e aviso do livro (09/11/2026): o livro sai junto com o diagnóstico. */
+.dg-aceite { display: flex; align-items: flex-start; gap: 10px; margin: 16px 0; font-size: 14px; line-height: 1.4; color: var(--cream-dim); cursor: pointer; }
+.dg-aceite input { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--amber); }
+.dg-livro { margin: 0 0 20px; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--amber); line-height: 1.45; }

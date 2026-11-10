@@ -42,7 +42,7 @@
       <div class="hero-actions">
         <a class="btn" href="#oferta">Quero o livro grátis</a>
       </div>
-      <p class="microcopy">Livro digital em PDF, grátis, entregue no seu WhatsApp na hora.</p>
+      <p class="microcopy">Livro digital em PDF, grátis. Responda o diagnóstico de 5 minutos e ele chega no seu WhatsApp.</p>
     </div>
     <div class="book3d-wrap" aria-hidden="true">
       <div class="book3d">
@@ -126,23 +126,14 @@
     <div class="offer-box">
       <p class="eyebrow">Restaurante no Controle</p>
       <div class="offer-price offer-price-texto">Grátis</div>
-      <p class="offer-sub">Preencha e o livro chega no seu WhatsApp na hora.</p>
+      <p class="offer-sub">Responda o diagnóstico de 5 minutos e o livro chega no seu WhatsApp.</p>
       <ul class="offer-list">
         <li>Livro digital completo em PDF</li>
         <li>O mesmo método da consultoria da Zatti</li>
-        <li>Entregue no seu WhatsApp assim que você preencher</li>
+        <li>Nota do seu restaurante e plano de ação para o ponto mais fraco</li>
+        <li>Entregue no seu WhatsApp assim que você terminar o diagnóstico</li>
       </ul>
-      <form class="livro-form" id="livro-form" novalidate>
-        <input type="hidden" name="produto" value="Livro Restaurante no Controle (grátis)">
-        <div class="field"><label for="lf-nome">Seu nome</label><input id="lf-nome" type="text" name="nome" autocomplete="name" required></div>
-        <div class="field"><label for="lf-whatsapp">WhatsApp com DDD</label><input id="lf-whatsapp" type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required></div>
-        <div class="field"><label for="lf-fat">Quanto o restaurante fatura por mês, em média?</label><select id="lf-fat" name="faturamento_atual" required><option value="" disabled selected>Escolha uma faixa</option><option>Até 50 mil</option><option>50 a 100 mil</option><option>100 a 150 mil</option><option>150 a 300 mil</option><option>Acima de 300 mil</option></select></div>
-        <div class="field"><label for="lf-dor">Qual é a sua maior dor hoje?</label><select id="lf-dor" name="dificuldade" required><option value="" disabled selected>Escolha a que mais pesa</option><option>Não sei se sobra lucro</option><option>CMV alto ou desperdício</option><option>Compras e estoque</option><option>Equipe e processos</option><option>O restaurante depende de mim</option><option>Outra</option></select></div>
-        <label class="livro-aceite"><input type="checkbox" name="aceite" value="sim" required><span>Aceito receber o livro e mensagens do Vinícius pelo WhatsApp.</span></label>
-        <p class="form-note form-error" id="lf-erro" hidden></p>
-        <button class="btn btn-block" type="submit">Quero o livro grátis</button>
-        <p class="form-note">Seus dados ficam comigo, conforme a <a class="link-amber" href="/privacidade/">Política de Privacidade</a>.</p>
-      </form>
+      <a class="btn btn-block js-para-diagnostico" href="/diagnostico/">Fazer o diagnóstico e receber o livro</a>
     </div>
   </div>
 </section>
@@ -162,9 +153,9 @@
     <h2 class="h2-section reveal">Antes de decidir</h2>
     <div class="faq">
       <details><summary>Para quem é esse livro?</summary><p>Para dono de restaurante, bar ou negócio de food service que fatura, mas não tem clareza sobre lucro, processos ou estratégia. Se você já tem DRE gerencial rodando e equipe treinada, ele é a base que você já tem.</p></details>
-      <details><summary>Como eu recebo o livro?</summary><p>Em PDF, no seu WhatsApp, logo depois que você preenche o formulário.</p></details>
+      <details><summary>Como eu recebo o livro?</summary><p>Em PDF, no seu WhatsApp, logo depois que você termina o diagnóstico de 5 minutos.</p></details>
       <details><summary>Preciso entender de gestão ou de finanças?</summary><p>Não. O livro foi escrito para dono de restaurante sem formação em gestão, direto e sem jargão desnecessário.</p></details>
-      <details><summary>É grátis mesmo?</summary><p>É. Você preenche o formulário e o livro chega no seu WhatsApp. Depois eu posso te chamar para entender o seu restaurante; se não quiser conversa, é só me dizer.</p></details>
+      <details><summary>É grátis mesmo?</summary><p>É. Você responde o diagnóstico e o livro chega no seu WhatsApp. Depois eu posso te chamar para entender o seu restaurante; se não quiser conversa, é só me dizer.</p></details>
     </div>
   </div>
 </section>
@@ -201,6 +192,12 @@
 <script src="/assets/main.js"></script>
 <script src="/assets/zatti-hub.js"></script>
 <script src="/assets/livro.js"></script>
-<script src="/assets/livro-gratis.js"></script>
+<script>
+  // Leva a origem da visita para o diagnóstico (Reels, Direct, bio).
+  (function () {
+    var origem = new URLSearchParams(window.location.search).get("origem");
+    if (origem) document.querySelectorAll(".js-para-diagnostico").forEach(function (a) { a.href = "/diagnostico/?origem=" + encodeURIComponent(origem); });
+  })();
+</script>
 </body>
 </html>
