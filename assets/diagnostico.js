@@ -194,7 +194,9 @@
     el("dg-fraco-nome").textContent = d.fraco.pilar.nome + " (" + d.fraco.nota + " de 100)";
     el("dg-fraco-texto").textContent = d.fraco.pilar.fraco;
     el("dg-plano").innerHTML = d.fraco.pilar.plano.map(function (t) { return "<li>" + t + "</li>"; }).join("");
-    var msg = "Oi, Vinícius! Fiz o diagnóstico de 5 minutos e meu ponto mais fraco deu " + d.fraco.pilar.nome + " (" + d.fraco.nota + "). Quero entender o que fazer.";
+    // Botão único (12/11/2026): o pedido abre o WhatsApp e o Vini responde com o livro e a leitura do diagnóstico.
+    // O texto precisa bater com TEXTO_PEDIDO_LIVRO em vini-agent/src/zatti/sdr-whatsapp.js.
+    var msg = "Quero receber meu diagnóstico e o livro Restaurante no Controle.";
     el("dg-whatsapp").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
     // A página da consultoria usa isto para não pedir outro questionário (ver consultoria-diagnostico.js).
     try { window.sessionStorage.setItem("zattiDiagnostico", JSON.stringify({ geral: d.geral, fraco: d.fraco.pilar.nome + " (" + d.fraco.nota + ")" })); } catch (e) { /* sem armazenamento: a consultoria mostra o texto genérico */ }
@@ -233,8 +235,8 @@
       enviar(contato, d).then(function (chegou) {
         renderResultado(d);
         el("dg-livro").textContent = chegou
-          ? "Seu livro Restaurante no Controle já está indo para o seu WhatsApp. Chega em alguns minutos, do meu número."
-          : "Não consegui confirmar o envio do seu livro. Me chama no WhatsApp pelo botão abaixo que eu te mando.";
+          ? "Seu diagnóstico completo e o livro Restaurante no Controle estão prontos. Toque no botão no fim da página para receber no seu WhatsApp."
+          : "Toque no botão no fim da página e me chama no WhatsApp que eu te mando o diagnóstico e o livro.";
         mostrar("dg-resultado");
       });
     });
