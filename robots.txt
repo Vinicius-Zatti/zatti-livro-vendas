@@ -1,0 +1,5 @@
+# robots.txt - zatticonsultoria.com.br (criado em 16/11/2026 com o blog)
+User-agent: *
+Allow: /
+
+Sitemap: https://zatticonsultoria.com.br/sitemap.xml
