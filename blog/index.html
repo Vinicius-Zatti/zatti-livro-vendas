@@ -45,16 +45,40 @@ img{max-width:100%;height:auto;display:block}
 .kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ambar)}
 h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5.6vw,54px);line-height:1.1;margin:10px 0 12px;color:var(--creme);text-wrap:balance}
 .capa p{max-width:62ch;margin:0;opacity:.85}
-.lista{padding:34px 20px 50px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
-.card{background:var(--branco);border-radius:12px;border:1px solid rgba(13,31,45,.12);padding:22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;min-height:44px}
-.card:hover{border-color:var(--ambar)}
-.card h2{font-family:var(--serif);font-size:26px;line-height:1.2;margin:0;color:var(--noite)}
-.card p{margin:0;font-size:15.5px;color:rgba(44,44,44,.85)}
-.card .data{font-size:13px;color:rgba(44,44,44,.6)}
+.lista{max-width:1120px;margin:0 auto;padding:34px 20px 56px}
+.capa{padding-bottom:0}
+.destaque{max-width:1120px;margin:0 auto;padding:30px 0 40px;display:grid;grid-template-columns:260px 1fr;gap:34px;align-items:center}
+.destaque .thumb{width:260px}
+.destaque .texto .kicker{display:block;margin-bottom:8px}
+.destaque h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);line-height:1.1;margin:0 0 12px;color:var(--creme);text-wrap:balance}
+.destaque h2 a{color:inherit;text-decoration:none}
+.destaque p{color:rgba(245,240,232,.85);margin:0 0 20px;max-width:56ch}
+.botoes{display:flex;flex-wrap:wrap;gap:12px}
+.botao{display:inline-flex;align-items:center;min-height:44px;padding:10px 20px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none}
+.botao.cheio{background:var(--ambar);color:var(--noite)}
+.botao.vazado{border:1.5px solid rgba(245,240,232,.5);color:var(--creme)}
+.secao-titulo{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 18px;border-bottom:2px solid var(--noite);padding-bottom:8px}
+.secao-titulo h2{font-family:var(--serif);font-size:30px;margin:0;color:var(--noite)}
+.secao-titulo span{font-size:14px;color:rgba(44,44,44,.65)}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:26px 20px}
+.card{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;min-height:44px}
+.thumb{position:relative;display:block;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--noite);box-shadow:0 6px 18px rgba(13,31,45,.18)}
+.thumb img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;transition:transform .35s ease}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,31,45,0) 55%,rgba(13,31,45,.55) 100%)}
+.play{position:absolute;left:10px;bottom:10px;width:40px;height:40px;border-radius:50%;background:rgba(201,136,42,.92);z-index:1;display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
+.play::before{content:"";margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent var(--noite)}
+.duracao{position:absolute;right:10px;bottom:10px;z-index:1;background:rgba(13,31,45,.85);color:var(--creme);font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:4px}
+.card:hover .thumb img,.destaque .thumb:hover img{transform:scale(1.04)}
+.card:hover .play{transform:scale(1.08)}
+.card .kicker{font-size:11.5px;margin-top:4px}
+.card h3{font-family:var(--serif);font-size:22px;line-height:1.18;margin:0;color:var(--noite)}
+.card:hover h3{color:var(--petroleo);text-decoration:underline;text-decoration-color:var(--ambar);text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.thumb img,.play{transition:none}.card:hover .thumb img,.destaque .thumb:hover img,.card:hover .play{transform:none}}
 .rodape{background:var(--noite);color:rgba(245,240,232,.75);font-size:14px;padding:26px 20px}
 .rodape .linha{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
 .rodape a{color:var(--creme)}
-@media (max-width:640px){.topo .logo img{height:32px}.topo nav a{margin-left:12px;font-size:13px}.lista{grid-template-columns:1fr}}
+@media (max-width:760px){.destaque{grid-template-columns:1fr;gap:22px}.destaque .thumb{width:min(240px,70vw);margin:0 auto}}
+@media (max-width:640px){.topo .logo img{height:32px}.topo nav a{margin-left:12px;font-size:13px}.grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}.card h3{font-size:18px}.secao-titulo{flex-wrap:wrap}.secao-titulo h2{font-size:25px}.play{width:34px;height:34px}}
 </style>
 </head>
 <body>
@@ -72,99 +96,91 @@ h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5.6vw,54px);lin
     <h1>Gestão de restaurante com número e fonte</h1>
     <p>Reportagens para quem toca hamburgueria e pizzaria: o fato primeiro, a conta explicada passo a passo e o que fazer com ela. Toda matéria traz a fonte oficial e o vídeo do Vinícius Zanetti sobre o tema.</p>
   </div>
+<!--destaque--><div class="destaque">
+    <a href="https://zatticonsultoria.com.br/blog/escala-5x2-42-horas/" aria-label="Escala 5x2 em 16 de dezembro: o que muda na hamburgueria e na pizzaria"><span class="thumb"><img src="https://i.ytimg.com/vi/uIuoQ1QGwmY/maxresdefault.jpg" alt="Capa do vídeo: Escala 5x2 em 16 de dezembro: o que muda na hamburgueria e na pizzaria" width="1280" height="720"><span class="play" aria-hidden="true"></span><span class="duracao">1:44</span></span></a>
+    <div class="texto">
+      <span class="kicker">Em destaque · Equipe e escala</span>
+      <h2><a href="https://zatticonsultoria.com.br/blog/escala-5x2-42-horas/">Escala 5x2 em 16 de dezembro: o que muda na hamburgueria e na pizzaria</a></h2>
+      <p>O STF manteve a jornada máxima de 42 horas por semana a partir de 16/12. Sem acordo coletivo, a semana pode ter cinco dias de 8h24. A conta, passo a passo, e o que o dono precisa fazer antes do fim do ano.</p>
+      <div class="botoes"><a class="botao cheio" href="https://zatticonsultoria.com.br/blog/escala-5x2-42-horas/">Ler a matéria</a><a class="botao vazado" href="https://www.youtube.com/shorts/uIuoQ1QGwmY" target="_blank" rel="noopener">Assistir no YouTube</a></div>
+    </div>
+  </div><!--/destaque-->
 </section>
 
 <main class="lista">
-  <a class="card" href="https://zatticonsultoria.com.br/blog/escala-5x2-42-horas/">
-    <span class="kicker">Equipe e escala</span>
-    <h2>Escala 5x2 em 16 de dezembro: o que muda na hamburgueria e na pizzaria</h2>
-    <p>O STF manteve a jornada máxima de 42 horas por semana a partir de 16/12. Sem acordo coletivo, a semana pode ter cinco dias de 8h24. A conta, passo a passo, e o que o dono precisa fazer antes do fim do ano.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/apara-coxinha-ficha-tecnica/">
-    <span class="kicker">CMV e custos</span>
-    <h2>A apara do cupim que virou coxinha: como montar a ficha técnica do reaproveitamento</h2>
-    <p>A apara já tem destino na maioria das cozinhas, no fundo ou no molho. Um dono foi além e criou um produto com preço próprio. O que entra na ficha técnica e o que fica fora dela.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/automacao-no-restaurante/">
-    <span class="kicker">Operação e tecnologia</span>
-    <h2>A balança que dispensa um posto e o robô que leva o prato: até onde vale automatizar o restaurante</h2>
-    <p>Num self-service, a balança imprime a comanda sozinha e a bebida fica no caminho do cliente. Em padarias de São Paulo, robôs levam o pedido à mesa. Veja o que cada tecnologia resolve e quanto custa, segundo as fontes.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/capital-de-giro-restaurante/">
-    <span class="kicker">Finanças</span>
-    <h2>Vende bem e falta dinheiro no restaurante? O problema tem nome: capital de giro</h2>
-    <p>O dinheiro de um mês bom não some. Ele fica parado no cartão sem antecipação, no repasse do aplicativo ou no estoque. A conta, em dias, de quanto o caixa precisa aguentar.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/cmv-nao-e-compras-do-mes/">
-    <span class="kicker">CMV e custos</span>
-    <h2>CMV de 27% que não era CMV: o erro de usar as compras do mês</h2>
-    <p>Um dono chegou ao diagnóstico com CMV dentro da faixa saudável e sem dinheiro sobrando no fim do mês. A conta usava as compras e o faturamento bruto. Veja por que ela engana e qual é a fórmula certa.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/comer-fora-x-comer-em-casa-inflacao/">
-    <span class="kicker">Custos e preço</span>
-    <h2>Comer fora subiu 51% desde 2020, e a comida do mercado, 67%: a diferença saiu da margem do restaurante</h2>
-    <p>Pelos dados do IBGE, o preço da comida comprada no supermercado subiu bem mais do que o preço de comer fora desde janeiro de 2020. Para o dono de hamburgueria e pizzaria, isso quer dizer ingrediente mais caro sem o mesmo reajuste no cardápio. A conta, passo a passo.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/cupom-delivery-ticket-medio/">
-    <span class="kicker">Delivery</span>
-    <h2>Cupom no delivery: por que oferta demais derruba o ticket médio</h2>
-    <p>Um cliente da Zatti tinha 97% dos pedidos com oferta em agosto. Em três meses, o investimento em promoção caiu de R$ 8.000 para R$ 2.800 e o ticket médio subiu. O mecanismo por trás, segundo Vinícius Zanetti.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/fator-de-correcao-frango/">
-    <span class="kicker">CMV e custos</span>
-    <h2>Fator de correção: o quilo de frango de R$ 19,90 que custa R$ 23,14</h2>
-    <p>Entre o congelador e a panela, o frango perde 14% do peso. Quem não coloca essa perda na ficha técnica calcula o custo errado e conta com pratos que a caixa não rende.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/padronizacao-porcionamento/">
-    <span class="kicker">Cozinha e operação</span>
-    <h2>Falta de padronização: o bife de 100 g que sai com 130 g come o lucro</h2>
-    <p>Um pouco a mais de queijo aqui, de arroz ali, e a peça de carne rende menos porções do que deveria. Veja a conta do excesso e por onde começar a padronizar.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/qual-lanche-tirar-do-cardapio/">
-    <span class="kicker">Cardápio</span>
-    <h2>Qual lanche tirar do cardápio: quando o dado vence o gosto do dono</h2>
-    <p>Vinícius Zanetti tirou do cardápio o lanche de que mais gostava porque ele não vendia. A engenharia de cardápio usa duas perguntas, vende e dá margem, para decidir o que fica, o que muda e o que sai.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/quanto-comprar-ponto-de-reposicao/">
-    <span class="kicker">Estoque e compras</span>
-    <h2>Quanto comprar de cada insumo: os dois números que acabam com a compra no chute</h2>
-    <p>Ponto de reposição diz até onde vai a compra. Estoque mínimo avisa quando não dá para esperar o próximo pedido. Com o exemplo do bacon, a conta de cada um, passo a passo.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/restaurantes-dividas-atraso-perdao/">
-    <span class="kicker">Dívidas e impostos</span>
-    <h2>Mais de um em cada três restaurantes tem conta atrasada. E o perdão das dívidas com a União?</h2>
-    <p>Na pesquisa da Abrasel, 37% dos bares e restaurantes estavam com pagamento em atraso, e imposto federal lidera a lista. O governo anunciou um projeto para perdoar dívidas do setor, mas o texto ainda não foi apresentado. Por que não parar de pagar o parcelamento agora.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/reuniao-semanal-de-erros-restaurante/">
-    <span class="kicker">Gestão e equipe</span>
-    <h2>O erro mais caro da semana: como a reunião de erros evita que o prejuízo se repita</h2>
-    <p>Erro vai acontecer em qualquer cozinha. O que pesa no caixa é o erro que se repete. Registrar, achar a causa e definir uma ação, sem caçar culpado, é o método que Vinícius Zanetti recomenda.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/selic-alta-caixa-do-restaurante/">
-    <span class="kicker">Economia e juros</span>
-    <h2>Selic em 13,75%: como os juros altos chegam ao caixa do restaurante</h2>
-    <p>O Banco Central manteve os juros básicos em 4 de novembro e indicou que eles devem continuar altos por mais tempo. Com o crédito caro, a família corta o lazer primeiro, e o restaurante sente na venda. A conta, passo a passo.</p>
-    <span class="data">16/11/2026</span>
-  </a>
-  <a class="card" href="https://zatticonsultoria.com.br/blog/vale-refeicao-taxa-maxima-3-6/">
-    <span class="kicker">Pagamentos e taxas</span>
-    <h2>Vale-refeição: taxa máxima de 3,6%, repasse em 15 dias e uma maquininha para todas as bandeiras</h2>
-    <p>Desde 7 de novembro, o cartão de vale-refeição e vale-alimentação deve passar em qualquer maquininha habilitada. É a última etapa do decreto que já tinha limitado a taxa e o prazo de repasse. O que isso muda na conta da hamburgueria e da pizzaria.</p>
-    <span class="data">16/11/2026</span>
-  </a>
+  <div class="secao-titulo"><h2>Todas as matérias</h2><span>15 reportagens com vídeo</span></div>
+  <div class="grade">
+    <a class="card" href="https://zatticonsultoria.com.br/blog/apara-coxinha-ficha-tecnica/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/LgyTafwb6WU/maxresdefault.jpg" alt="Capa do vídeo: A apara do cupim que virou coxinha: como montar a ficha técnica do reaproveitamento" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:10</span></span>
+      <span class="kicker">CMV e custos</span>
+      <h3>A apara do cupim que virou coxinha: como montar a ficha técnica do reaproveitamento</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/automacao-no-restaurante/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/WYYxaWQOrVA/maxresdefault.jpg" alt="Capa do vídeo: A balança que dispensa um posto e o robô que leva o prato: até onde vale automatizar o restaurante" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">0:57</span></span>
+      <span class="kicker">Operação e tecnologia</span>
+      <h3>A balança que dispensa um posto e o robô que leva o prato: até onde vale automatizar o restaurante</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/capital-de-giro-restaurante/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/taPyyn2G_T8/maxresdefault.jpg" alt="Capa do vídeo: Vende bem e falta dinheiro no restaurante? O problema tem nome: capital de giro" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">0:58</span></span>
+      <span class="kicker">Finanças</span>
+      <h3>Vende bem e falta dinheiro no restaurante? O problema tem nome: capital de giro</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/cmv-nao-e-compras-do-mes/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/qcDeuL4OF14/maxresdefault.jpg" alt="Capa do vídeo: CMV de 27% que não era CMV: o erro de usar as compras do mês" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">2:02</span></span>
+      <span class="kicker">CMV e custos</span>
+      <h3>CMV de 27% que não era CMV: o erro de usar as compras do mês</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/comer-fora-x-comer-em-casa-inflacao/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/5B-PAJnurPM/maxresdefault.jpg" alt="Capa do vídeo: Comer fora subiu 51% desde 2020, e a comida do mercado, 67%: a diferença saiu da margem do restaurante" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">0:42</span></span>
+      <span class="kicker">Custos e preço</span>
+      <h3>Comer fora subiu 51% desde 2020, e a comida do mercado, 67%: a diferença saiu da margem do restaurante</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/cupom-delivery-ticket-medio/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/ZRLU3CXPMkA/maxresdefault.jpg" alt="Capa do vídeo: Cupom no delivery: por que oferta demais derruba o ticket médio" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:25</span></span>
+      <span class="kicker">Delivery</span>
+      <h3>Cupom no delivery: por que oferta demais derruba o ticket médio</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/fator-de-correcao-frango/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/ezs6YIgtbek/maxresdefault.jpg" alt="Capa do vídeo: Fator de correção: o quilo de frango de R$ 19,90 que custa R$ 23,14" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:53</span></span>
+      <span class="kicker">CMV e custos</span>
+      <h3>Fator de correção: o quilo de frango de R$ 19,90 que custa R$ 23,14</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/padronizacao-porcionamento/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/fSU6_aONaXY/maxresdefault.jpg" alt="Capa do vídeo: Falta de padronização: o bife de 100 g que sai com 130 g come o lucro" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:45</span></span>
+      <span class="kicker">Cozinha e operação</span>
+      <h3>Falta de padronização: o bife de 100 g que sai com 130 g come o lucro</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/qual-lanche-tirar-do-cardapio/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/zpdASdFSRSA/maxresdefault.jpg" alt="Capa do vídeo: Qual lanche tirar do cardápio: quando o dado vence o gosto do dono" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:15</span></span>
+      <span class="kicker">Cardápio</span>
+      <h3>Qual lanche tirar do cardápio: quando o dado vence o gosto do dono</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/quanto-comprar-ponto-de-reposicao/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/MpjwPq1mjfY/maxresdefault.jpg" alt="Capa do vídeo: Quanto comprar de cada insumo: os dois números que acabam com a compra no chute" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:12</span></span>
+      <span class="kicker">Estoque e compras</span>
+      <h3>Quanto comprar de cada insumo: os dois números que acabam com a compra no chute</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/restaurantes-dividas-atraso-perdao/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/JECiCsTx5AQ/maxresdefault.jpg" alt="Capa do vídeo: Mais de um em cada três restaurantes tem conta atrasada. E o perdão das dívidas com a União?" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">0:37</span></span>
+      <span class="kicker">Dívidas e impostos</span>
+      <h3>Mais de um em cada três restaurantes tem conta atrasada. E o perdão das dívidas com a União?</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/reuniao-semanal-de-erros-restaurante/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/jYju21DtBjQ/maxresdefault.jpg" alt="Capa do vídeo: O erro mais caro da semana: como a reunião de erros evita que o prejuízo se repita" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:14</span></span>
+      <span class="kicker">Gestão e equipe</span>
+      <h3>O erro mais caro da semana: como a reunião de erros evita que o prejuízo se repita</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/selic-alta-caixa-do-restaurante/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/TOPXQByC--k/maxresdefault.jpg" alt="Capa do vídeo: Selic em 13,75%: como os juros altos chegam ao caixa do restaurante" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">1:07</span></span>
+      <span class="kicker">Economia e juros</span>
+      <h3>Selic em 13,75%: como os juros altos chegam ao caixa do restaurante</h3>
+    </a>
+    <a class="card" href="https://zatticonsultoria.com.br/blog/vale-refeicao-taxa-maxima-3-6/">
+      <span class="thumb"><img src="https://i.ytimg.com/vi/8VWC-8G7MTg/maxresdefault.jpg" alt="Capa do vídeo: Vale-refeição: taxa máxima de 3,6%, repasse em 15 dias e uma maquininha para todas as bandeiras" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="duracao">0:49</span></span>
+      <span class="kicker">Pagamentos e taxas</span>
+      <h3>Vale-refeição: taxa máxima de 3,6%, repasse em 15 dias e uma maquininha para todas as bandeiras</h3>
+    </a>
+  </div>
 </main>
 
 <footer class="rodape">
