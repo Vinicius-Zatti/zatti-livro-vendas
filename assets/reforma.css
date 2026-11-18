@@ -14,5 +14,21 @@
 .rf-linha.is-forte span,.rf-linha.is-forte b{color:var(--amber);}
 .rf-aviso{margin:14px 0 0;padding:12px 14px;border-radius:10px;border:1px solid var(--amber);background:var(--amber-soft);font-size:14.5px;line-height:1.45;}
 .rf-proximo .dg-btn{margin:16px 0 8px;}
+.rf-rotulo{font-size:14px;color:var(--cream-dim);margin:4px 0 8px;}
+.rf-regime{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;}
+.rf-regime .dg-opcao{text-align:center;padding:12px 8px;}
+.rf-ad-grade{display:grid;gap:10px;margin:8px 0;}
+.rf-ad{background:var(--navy-2);border:1px solid var(--hairline-dark);border-radius:var(--radius-md);padding:16px;}
+.rf-ad.is-destaque{border-color:var(--amber);}
+.rf-ad-rotulo{margin:0 0 4px;font-size:14px;color:var(--cream-dim);}
+.rf-ad-valor{margin:0;font-family:var(--serif);font-size:38px;line-height:1.1;color:var(--cream);}
+.rf-ad.is-destaque .rf-ad-valor{color:var(--amber);}
+.rf-ad-valor small{font-family:var(--sans);font-size:14px;color:var(--cream-dim);}
+.rf-ad-mes{margin:4px 0 0;font-size:15px;}
+.rf-curto{font-size:15px;margin:8px 0 14px;}
+.rf-faixas{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0;}
+.rf-faixas th,.rf-faixas td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--hairline-dark);}
+.rf-faixas th{color:var(--cream-dim);font-weight:500;}
+.rf-faixas tr.is-sua td{color:var(--amber);font-weight:700;background:var(--amber-soft);}
 .rf-fonte{margin-top:36px;color:var(--cream-dim);overflow-wrap:anywhere;}
 #rf-raiox-conteudo .dg-cartao,#rf-resumo-final .dg-cartao{overflow-wrap:anywhere;}
