@@ -67,8 +67,8 @@
     var d = dados, r = conta, h = '<p class="eyebrow">Seu antes e depois</p>';
     if (r.noSimples) {
       h += '<div class="rf-ad-grade">' + cartao("Hoje, no Simples", r.hoje) + cartao("Depois da reforma, ficando no Simples", r.depois) + "</div>";
-      h += '<p class="rf-curto">No Simples a sua guia continua com o mesmo peso: a CBS e o IBS entram no lugar do PIS, da Cofins e do ICMS dentro dela.</p>';
-      h += '<div class="rf-ad-grade">' + cartao("Se sair do Simples (cenário)", r.fora, true) + "</div>";
+      h += '<p class="rf-curto">No Simples a sua guia continua com o mesmo peso: a CBS e o IBS entram no lugar do PIS, da Cofins e do ICMS dentro dela. O desconto de 40% do restaurante não vale no Simples, só fora dele.</p>';
+      h += '<div class="rf-ad-grade">' + cartao("Se sair do Simples (cenário, já com o desconto de 40%)", r.fora, true) + "</div>";
       h += '<p class="rf-curto">Você sai do Simples ao passar de R$ 4,8 milhões por ano. ' +
         (r.faltaTeto > 0 ? "Faltam " + C.brl(r.faltaTeto) + " por ano para isso." : "") + "</p>";
       h += '<p class="eyebrow mt-md">Faixas do Simples</p>' + tabela(r);
