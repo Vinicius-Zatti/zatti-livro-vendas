@@ -146,6 +146,10 @@
       dificuldade: perfil.dificuldade, aceite: "sim",
       respostas: respostas.join(""),
     };
+    // Página que reaproveita o diagnóstico (18/11/2026, /reforma/): manda a origem dela e campos a mais.
+    var cfg = window.zattiDiagnostico || {};
+    if (cfg.origem) corpo.origem = cfg.origem;
+    if (typeof cfg.extra === "function") { var x = cfg.extra() || {}; Object.keys(x).forEach(function (k) { if (x[k]) corpo[k] = x[k]; }); }
     var vini = fetch(VINI_LEADS_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(corpo) })
       .then(function (r) { return !!r && r.ok; })
       .catch(function () { return false; });

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raio-X da Reforma do Restaurante | Zatti Consultoria</title>
+<meta name="description" content="Quanto o imposto novo da reforma tributária pesa no preço do seu burger ou da sua pizza. Conta grátis com a regra oficial da Receita Federal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/marca.css">
+<link rel="stylesheet" href="/assets/diagnostico.css">
+<link rel="stylesheet" href="/assets/reforma.css">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+</head>
+<body class="dark-theme">
+
+<nav>
+  <div class="nav-row">
+    <a class="wordmark wordmark-logo" href="/" aria-label="Zatti"><img class="logo-plano" src="/assets/marca/assinatura-zatti.svg" alt="Zatti" width="131" height="46"></a>
+    <ul class="nav-links">
+      <li><a href="/livro/">Livro</a></li>
+      <li><a href="/zatti-hub/">Zatti Hub</a></li>
+      <li><a href="/consultoria/">Consultoria</a></li>
+    </ul>
+    <a class="btn nav-cta" href="/consultoria/#pesquisa" style="padding:11px 20px;font-size:13.5px;">Falar com especialista</a>
+    <button class="nav-toggle" type="button" aria-expanded="false">Menu</button>
+  </div>
+  <div class="nav-mobile">
+    <a href="/">Início</a>
+    <a href="/livro/">Livro</a>
+    <a href="/zatti-hub/">Zatti Hub</a>
+    <a href="/consultoria/">Consultoria</a>
+  </div>
+</nav>
+
+<main class="band dg">
+  <div class="wrap">
+
+    <section id="rf-entrada">
+      <p class="eyebrow">Reforma tributária · grátis · 2 minutos</p>
+      <h1 class="dg-titulo">O imposto do seu burger vai mudar. Você sabe quanto?</h1>
+      <p class="mt-sm">Faça a conta de um item do seu cardápio com a regra oficial da Receita Federal. O resultado aparece na hora, sem cadastro.</p>
+
+      <div class="rf-saber mt-md">
+        <p class="eyebrow" style="margin-bottom:8px;">O que ninguém te contou</p>
+        <ul class="rf-lista">
+          <li>O burger feito na sua cozinha e a lata de refri do mesmo combo vão pagar imposto diferente.</li>
+          <li>A parte que o iFood fica não entra na conta do imposto, mas só se a sua nota separar esse valor.</li>
+          <li>Cerveja e chopp não têm o desconto do restaurante.</li>
+        </ul>
+      </div>
+
+      <form id="rf-form" class="dg-cartao mt-md" novalidate>
+        <h2 class="dg-pergunta">Como a sua empresa paga imposto hoje?</h2>
+        <div class="dg-opcoes">
+          <button class="dg-opcao" type="button" data-regime="simples">Simples Nacional (guia DAS)</button>
+          <button class="dg-opcao" type="button" data-regime="geral">Lucro Presumido ou Lucro Real</button>
+          <button class="dg-opcao" type="button" data-regime="naosei">Não sei</button>
+        </div>
+
+        <div id="rf-geral" class="dg-campos" hidden>
+          <h2 class="dg-pergunta" style="margin:8px 0 0;">Um item do seu cardápio</h2>
+          <label>Que tipo de item é?
+            <select id="rf-tipo">
+              <option value="preparado">Feito na sua cozinha (burger, pizza, porção, suco)</option>
+              <option value="alcool">Bebida alcoólica (cerveja, chopp, drink)</option>
+              <option value="revenda">Comprado pronto e revendido (lata de refri, água)</option>
+            </select>
+          </label>
+          <label>Preço de venda (R$)<input id="rf-preco" type="text" inputmode="decimal" placeholder="ex.: 38,00"></label>
+          <label>Custo da ficha técnica (R$)<input id="rf-custo" type="text" inputmode="decimal" placeholder="ex.: 11,40"></label>
+          <label>Onde vende?
+            <select id="rf-canal">
+              <option value="balcao">Salão ou balcão</option>
+              <option value="app">iFood ou outro app</option>
+            </select>
+          </label>
+          <label id="rf-app" hidden>Quanto o app fica de cada pedido (%)
+            <input id="rf-comissao" type="text" inputmode="decimal" placeholder="ex.: 23">
+            <small>Comissão mais taxa de pagamento: o que não chega na sua conta.</small>
+          </label>
+          <label>Ano da conta
+            <select id="rf-ano">
+              <option value="2026">2026 (ano de teste, alíquota oficial)</option>
+              <option value="cenario">2027 em diante (cenário)</option>
+            </select>
+          </label>
+          <div id="rf-cenario" class="dg-campos" style="margin:0;" hidden>
+            <p class="rf-aviso" style="margin:0;">A Receita ainda não publicou as alíquotas de 2027 em diante; quem fixa é o Senado. Aqui você testa um cenário com a alíquota cheia (IBS + CBS) que o seu contador passar. A redução de 40% do restaurante a lei já garante.</p>
+            <label>Alíquota cheia do cenário (%)<input id="rf-cheia" type="text" inputmode="decimal" placeholder="a que o seu contador indicar"></label>
+            <label>Quanto você paga hoje de imposto sobre a venda (%)
+              <input id="rf-atual" type="text" inputmode="decimal" placeholder="opcional">
+              <small>PIS, Cofins, ICMS e ISS somados. Peça ao contador.</small>
+            </label>
+          </div>
+        </div>
+
+        <p class="dg-erro" id="rf-erro" hidden></p>
+        <button class="btn dg-btn" id="rf-calcular" type="submit" hidden>Ver meu Raio-X da Reforma</button>
+      </form>
+    </section>
+
+    <section id="rf-raiox" hidden>
+      <div id="rf-raiox-conteudo"></div>
+      <div class="dg-cartao mt-md rf-proximo">
+        <p class="eyebrow" style="margin-bottom:8px;">Próximo passo</p>
+        <h2 class="dg-pergunta">Imposto é só uma parte. Onde mais o seu restaurante perde dinheiro?</h2>
+        <p>Responda o diagnóstico completo: 16 perguntas de toque, uns 4 minutos. Você vê a nota do restaurante de 0 a 100, um plano de ação para o ponto mais fraco e ganha o livro Restaurante no Controle no WhatsApp.</p>
+        <button class="btn dg-btn" id="dg-comecar" type="button">Fazer o diagnóstico e ganhar o livro</button>
+        <button class="dg-link" id="rf-refazer" type="button">Refazer a conta com outro item</button>
+      </div>
+    </section>
+
+    <!-- Usado pelo diagnostico.js (exemplo da tela inicial); nesta página a entrada é a calculadora. -->
+    <section id="dg-inicio" hidden>
+      <div id="dg-exemplo-radar"></div>
+      <div id="dg-exemplo-barras"></div>
+    </section>
+
+    <section id="dg-quiz" hidden>
+      <div class="dg-cartao">
+        <div class="dg-progresso"><span id="dg-pilar"></span><span id="dg-progresso-texto"></span></div>
+        <div class="dg-trilho"><span id="dg-progresso-barra"></span></div>
+        <h2 class="dg-pergunta" id="dg-pergunta"></h2>
+        <div class="dg-opcoes" id="dg-opcoes"></div>
+        <button class="dg-link" id="dg-voltar" type="button">Voltar</button>
+      </div>
+    </section>
+
+    <section id="dg-contato" hidden>
+      <div class="dg-cartao">
+        <p class="eyebrow">Pronto</p>
+        <h2 class="dg-pergunta">Para quem é o resultado?</h2>
+        <p>Preencha tudo para ver a nota e o plano de ação e receber o livro no WhatsApp.</p>
+        <form id="dg-form" novalidate>
+          <div class="dg-campos">
+            <label>Seu nome<input name="nome" type="text" autocomplete="name" required></label>
+            <label>WhatsApp com DDD<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required></label>
+            <label>Nome do restaurante<input name="negocio" type="text" required></label>
+            <label>@ do Instagram do restaurante<input name="instagram" type="text" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="@seurestaurante" required></label>
+          </div>
+          <label class="dg-aceite"><input type="checkbox" name="aceite" value="sim" required><span>Aceito receber o livro e mensagens do Vinícius pelo WhatsApp.</span></label>
+          <p class="dg-erro" id="dg-erro" hidden></p>
+          <button class="btn" type="submit">Ver meu resultado</button>
+          <p class="microcopy mt-sm">Seus dados ficam comigo, conforme a <a class="link-amber" href="/privacidade/">Política de Privacidade</a>.</p>
+        </form>
+        <button class="dg-link" id="dg-contato-voltar" type="button">Voltar para a última pergunta</button>
+      </div>
+    </section>
+
+    <section id="dg-resultado" hidden>
+      <p class="dg-livro" id="dg-livro"></p>
+      <p class="eyebrow">Seu resultado</p>
+      <div class="dg-cartao">
+        <div class="dg-geral"><span>Nota geral</span><strong id="dg-geral"></strong><small>de 100</small></div>
+        <div class="dg-radar" id="dg-radar"></div>
+        <div id="dg-barras"></div>
+      </div>
+      <div class="dg-fraco mt-md">
+        <p class="eyebrow" style="margin-bottom:8px;">Seu ponto mais fraco</p>
+        <h2 id="dg-fraco-nome"></h2>
+        <p class="mt-sm" id="dg-fraco-texto"></p>
+      </div>
+      <h2 class="dg-subtitulo">Seu plano de ação</h2>
+      <ol class="dg-plano" id="dg-plano"></ol>
+      <p>É exatamente isso que eu implanto nos restaurantes que acompanho, com o Método M.E.G.A. Se quiser, eu te mostro por onde começar no seu caso.</p>
+      <div class="dg-acoes">
+        <a class="btn" id="dg-whatsapp" href="#" target="_blank" rel="noopener">Receber meu diagnóstico e o livro pelo WhatsApp</a>
+      </div>
+
+      <h2 class="dg-subtitulo">Seu Raio-X da Reforma</h2>
+      <div id="rf-resumo-final"></div>
+
+      <div class="dg-cartao mt-md rf-proximo">
+        <p class="eyebrow" style="margin-bottom:8px;">E o cardápio inteiro?</p>
+        <h2 class="dg-pergunta">Você fez a conta de um item. O Zatti Hub faz de todos.</h2>
+        <p>No Zatti Hub, cada prato tem ficha técnica e preço sugerido por canal, já com a comissão do app, a taxa de pagamento e o imposto. Quando a alíquota mudar, você troca o percentual e vê o cardápio todo de novo.</p>
+        <a class="btn dg-btn" href="/zatti-hub/?origem=reforma">Testar o Zatti Hub por 7 dias grátis</a>
+      </div>
+    </section>
+
+    <p class="microcopy rf-fonte">Fonte das contas: alíquotas de 2026 (CBS 0,9% e IBS 0,1%) da Calculadora de Tributos da Receita Federal, versão 1.6.1 (github.com/ReceitaFederal/calculadora-rtc-regime-regular). Regras de restaurante: Lei Complementar 214/2025, arts. 273 a 276. De 2027 em diante a alíquota ainda não foi publicada, por isso aparece só como cenário. Não substitui o seu contador: serve para você chegar na conversa com ele sabendo o que perguntar.</p>
+
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-top">
+      <div><img class="rodape-logo" src="/assets/marca/assinatura-zatti.svg" alt="Zatti" width="150" height="52" loading="lazy"><p class="rodape-cat">Gestão Implementada<br>para Restaurantes</p></div>
+      <div><h4>Caminhos</h4><ul><li><a href="/livro/">Livro</a></li><li><a href="/zatti-hub/">Zatti Hub</a></li><li><a href="/consultoria/">Consultoria</a></li><li><a href="/diagnostico/">Diagnóstico gratuito</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://www.instagram.com/viniciusczanetti/" target="_blank" rel="noopener">@viniciusczanetti</a></li><li><a href="https://wa.me/5511963898411" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="/privacidade/">Privacidade</a></li></ul></div>
+    </div>
+    <div class="rodape-base"><span>Método M.E.G.A. · Mapeia. Estrutura. Garante. Acompanha.</span><span>Food service, nada mais.</span></div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/reforma-calculo.js"></script>
+<script src="/assets/reforma.js"></script>
+<script src="/assets/diagnostico.js"></script>
+</body>
+</html>
